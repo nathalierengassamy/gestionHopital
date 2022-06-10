@@ -1,0 +1,38 @@
+<div>
+    <h1>Facture</h1>
+    <form (ngSubmit)="saveFacture()">
+        <table>
+            <tr>
+                <td>Montant</td>
+                <td><input type="test" [(ngModel)]="facture.montant" name="montant"></td>
+            </tr> 
+            <tr>
+                <td>Destinataire</td>
+                <td><input type="test" [(ngModel)]="facture.destinataire" name="destinataire"></td>
+            </tr> 
+            <tr>
+                <td>Dossier</td>
+                <td><input type="test" [(ngModel)]="facture.dossier" name="dossier"></td>
+            </tr>    
+            <tr>
+                <td colspan="2"><button>Créer</button></td>
+            </tr>  
+        </table>
+    </form>>
+</div>>
+<div>
+    <table>
+        <tr>
+            <th>Montant</th>
+            <th>Destinataire</th>
+            <th>Dossier</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let f of facture">
+                <td>{{f.montant}}</td>
+                <td>{{f.destinataire}}</td>
+                <td>{{f.dossier}}</td>
+                <td><button (click)="deletefacture(f.idFacture)">Delete</button></td>
+        </tr>
+    </table>
+    </div>
