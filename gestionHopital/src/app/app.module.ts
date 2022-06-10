@@ -10,6 +10,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { OrdonnanceComponent } from './ordonnance/ordonnance/ordonnance.component';
 import { RDVComponent } from './RDV/rdv/rdv.component';
 import { MessageComponent } from './message/message/message.component';
+import { MedicamentComponent } from './medicament/medicament/medicament.component';
+import { FactureComponent } from './facture/facture/facture.component';
+import { DossierComponent } from './dossier/dossier/dossier.component';
+import { ChambreComponent } from './chambre/chambre/chambre.component';
 
 @NgModule({
   imports: [
@@ -27,6 +31,10 @@ import { MessageComponent } from './message/message/message.component';
     OrdonnanceComponent,
     RDVComponent,
     MessageComponent,
+    MedicamentComponent,
+    FactureComponent,
+    DossierComponent,
+    ChambreComponent,
 
   ],
   providers: [],

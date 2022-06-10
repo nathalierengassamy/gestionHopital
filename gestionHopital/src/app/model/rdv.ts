@@ -4,4 +4,5 @@ export class RDV {
     heureRDV:String;
     dateRDV:Date;
     diagnostic:String;
+    user:Utilisateur[];
 }

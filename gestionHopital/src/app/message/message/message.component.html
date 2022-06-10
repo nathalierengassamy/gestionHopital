@@ -7,6 +7,10 @@
                         <td><input type="test" [(ngModel)]="message.libelle" name="libelle"></td>
                     </tr>    
                     <tr>
+                        <td>Utilisateur</td>
+                        <td><input type="test" [(ngModel)]="message.user" name="user"></td>
+                    </tr>    
+                    <tr>
                         <td colspan="2"><button>Répondre</button></td>
                     </tr>  
                 </table>
@@ -16,10 +20,12 @@
             <table>
                 <tr>
                     <th>Libelle</th>
+                    <th>Utilisateur</th>
                     <th>Action</th>
                 </tr>
                 <tr *ngFor="let u of message">
                         <td>{{u.libelle}}</td>
+                        <td>{{u.user}}</td>
                         <td><button (click)="deletemessage(u.idMessage)">Delete</button></td>
                 </tr>
             </table>
