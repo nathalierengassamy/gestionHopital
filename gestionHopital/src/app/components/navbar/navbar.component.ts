@@ -110,7 +110,7 @@ export class NavbarComponent implements OnInit {
     };
 
     getTitle(){
-      var titlee = this.location.prepareExternalUrl(this.location.path());
+      /*var titlee = this.location.prepareExternalUrl(this.location.path());
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
       }
@@ -119,7 +119,7 @@ export class NavbarComponent implements OnInit {
           if(this.listTitles[item].path === titlee){
               return this.listTitles[item].title;
           }
-      }
-      return 'Dashboard';
+      }*/
+      return 'Gestion Hopital';
     }
 }
