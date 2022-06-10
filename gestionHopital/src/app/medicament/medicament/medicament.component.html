@@ -1,0 +1,56 @@
+<div>
+    <h1>Medicament</h1>
+    <form (ngSubmit)="saveMedicament()">
+        <table>
+            <tr>
+                <td>Libelle</td>
+                <td><input type="test" [(ngModel)]="medicament.libelleMedicament" name="libelleMedicament"></td>
+            </tr> 
+            <tr>
+                <td>Prix</td>
+                <td><input type="test" [(ngModel)]="medicament.prixMedicament" name="prixMedicament"></td>
+            </tr>    
+            <tr>
+                <td>Date d'expiration</td>
+                <td><input type="test" [(ngModel)]="medicament.dateExpiration" name="dateExpiration"></td>
+            </tr> 
+            <tr>
+                <td>Stock</td>
+                <td><input type="test" [(ngModel)]="medicament.stock" name="stock"></td>
+            </tr> 
+            <tr>
+                <td>Ordonnance</td>
+                <td><input type="test" [(ngModel)]="medicament.ordonnances" name="ordonnance"></td>
+            </tr> 
+            <tr>
+                <td>Utilisateur</td>
+                <td><input type="test" [(ngModel)]="medicament.utilisateur" name="utilisateur"></td>
+            </tr>    
+            <tr>
+                <td colspan="2"><button>Modifier</button></td>
+            </tr>  
+        </table>
+    </form>>
+</div>>
+<div>
+    <table>
+        <tr>
+            <th>Libelle</th>
+            <th>Prix</th>
+            <th>Date d'expiration</th>
+            <th>Stock</th>
+            <th>Ordonnance</th>
+            <th>Utilisateur</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let m of medicament">
+                <td>{{m.libelleMedicament}}</td>
+                <td>{{m.prixMedicament}}</td>
+                <td>{{m.dateExpiration}}</td>
+                <td>{{m.stock}}</td>
+                <td>{{m.ordonnance}}</td>
+                <td>{{m.user}}</td>
+                <td><button (click)="deletemessage(m.idMedicament)">Delete</button></td>
+        </tr>
+    </table>
+    </div>

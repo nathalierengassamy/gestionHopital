@@ -9,7 +9,7 @@ export class AdministrateurComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

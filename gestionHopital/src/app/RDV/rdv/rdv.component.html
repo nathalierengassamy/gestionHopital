@@ -1,0 +1,50 @@
+<div>
+    <h1>RDV</h1>
+    <form (ngSubmit)="saveRDV()">
+        <table>
+            <tr>
+                <td>Type RDV</td>
+                <td><input type="test" [(ngModel)]="rdv.typeRDV" name="typeRDV"></td>
+            </tr>   
+            <tr>
+                <td>Heure RDV</td>
+                <td><input type="test" [(ngModel)]="rdv.heureRDV" name="heureRDV"></td>
+            </tr> 
+            <tr>
+                <td>Date RDV</td>
+                <td><input type="test" [(ngModel)]="rdv.dateRDV" name="dateRDV"></td>
+            </tr>   
+            <tr>
+                <td>Diagnostic</td>
+                <td><input type="test" [(ngModel)]="rdv.diagnostic" name="diagnostic"></td>
+            </tr>   
+            <tr>
+                <td>Utilisateur</td>
+                <td><input type="test" [(ngModel)]="rdv.user" name="user"></td>
+            </tr>    
+            <tr>
+                <td colspan="2"><button>Planifier</button></td>
+            </tr>  
+        </table>
+    </form>>
+</div>>
+<div>
+    <table>
+        <tr>
+            <th>Type RDV</th>
+            <th>Heure RDV</th>
+            <th>Date RDV</th>
+            <th>Diagnostic</th>
+            <th>Utilisateur</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let r of rdv">
+                <td>{{r.typeRDV}}</td>
+                <td>{{r.heureRDV}</td>
+                <td>{{r.dateRDV}}</td>
+                <td>{{r.diagnostic}}</td>
+                <td>{{r.user}}</td>
+                <td><button (click)="deleterdv(r.idrdv)">Delete</button></td>
+        </tr>
+    </table>
+    </div>
