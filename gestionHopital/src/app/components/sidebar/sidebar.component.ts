@@ -8,14 +8,14 @@ declare const $: any;
     class: string;
 }*/
 export const ROUTES = [
-    { path: '/dashboard', title: 'Accueil',  icon: 'dashboard', class: '' },
+    { path: '/dashboard', title: 'Accueil',  icon: 'home', class: '' },
     { path: '/user-profile', 
       title: 'Connexion',  
       icon:'person', 
       class: '',
       children : [
         {
-          path:'/user-profile/patient', title:'Je suis un patient', icon:'person',class:''
+          path:'/user-profile/patient', title:'Je suis un patient', icon:'personal_injury',class:''
         },
         {
           path:'/user-profile/medecin', title:'Je suis un médecin', icon:'person',class:''
@@ -24,9 +24,9 @@ export const ROUTES = [
           path:'/user-profile/administrateur', title:'Je suis un administrateur', icon:'person',class:''
         },
       ]},
-    { path: '/table-list', title: 'Prendre un rendez-vous',  icon:'content_paste', class: '' },
-    { path: '/typography', title: 'Infos pratiques',  icon:'library_books', class: '' },
-    { path: '/icons', title: 'Faire un don',  icon:'bubble_chart', class: '' },
+    { path: '/table-list', title: 'Prendre un rendez-vous',  icon:'calendar_month', class: '' },
+    { path: '/typography', title: 'Infos pratiques',  icon:'info', class: '' },
+    { path: '/icons', title: 'Faire un don',  icon:'favorite', class: '' },
     //{ path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     //{ path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     //{ path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
