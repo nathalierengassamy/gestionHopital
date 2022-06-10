@@ -1,0 +1,32 @@
+<div>
+    <h1>Ordonnance</h1>
+    <form (ngSubmit)="saveOrdonnance()">
+        <table>
+            <tr>
+                <td>Medicament</td>
+                <td><input type="test" [(ngModel)]="ordonnance.medicament" name="medicament"></td>
+            </tr>   
+            <tr>
+                <td>Consigne</td>
+                <td><input type="test" [(ngModel)]="ordonnance.consigne" name="consigne"></td>
+            </tr> 
+            <tr>
+                <td colspan="2"><button>Rediger</button></td>
+            </tr>  
+        </table>
+    </form>>
+</div>>
+<div>
+    <table>
+        <tr>
+            <th>Medicament</th>
+            <th>Consigne</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let o of ordonnance">
+                <td>{{o.medicament}}</td>
+                <td>{{o.consigne}}</td>
+                <td><button (click)="deleteordonnance(o.idOrdonnance)">Delete</button></td>
+        </tr>
+    </table>
+    </div>

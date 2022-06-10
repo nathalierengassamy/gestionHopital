@@ -1,0 +1,26 @@
+        <div>
+            <h1>Message / Questions </h1>
+            <form (ngSubmit)="saveMessage()">
+                <table>
+                    <tr>
+                        <td>Libelle</td>
+                        <td><input type="test" [(ngModel)]="message.libelle" name="libelle"></td>
+                    </tr>    
+                    <tr>
+                        <td colspan="2"><button>Répondre</button></td>
+                    </tr>  
+                </table>
+            </form>>
+        </div>>
+        <div>
+            <table>
+                <tr>
+                    <th>Libelle</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let u of message">
+                        <td>{{u.libelle}}</td>
+                        <td><button (click)="deletemessage(u.idMessage)">Delete</button></td>
+                </tr>
+            </table>
+            </div>
