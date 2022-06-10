@@ -14,6 +14,10 @@ import { MedicamentComponent } from './medicament/medicament/medicament.componen
 import { FactureComponent } from './facture/facture/facture.component';
 import { DossierComponent } from './dossier/dossier/dossier.component';
 import { ChambreComponent } from './chambre/chambre/chambre.component';
+import { PatientComponent } from './user-profile/patient/patient.component';
+import { MedecinComponent } from './user-profile/medecin/medecin.component';
+import { AdministrateurComponent } from './user-profile/administrateur/administrateur.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
@@ -24,6 +28,8 @@ import { ChambreComponent } from './chambre/chambre/chambre.component';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    BrowserModule,
+    FormsModule,
   ],
   declarations: [
     AppComponent,
@@ -35,6 +41,9 @@ import { ChambreComponent } from './chambre/chambre/chambre.component';
     FactureComponent,
     DossierComponent,
     ChambreComponent,
+    PatientComponent,
+    MedecinComponent,
+    AdministrateurComponent,
 
   ],
   providers: [],
