@@ -2,6 +2,9 @@ import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
+import { PatientComponent } from '../../user-profile/patient/patient.component';
+import { MedecinComponent } from '../../user-profile/medecin/medecin.component';
+import { AdministrateurComponent } from '../../user-profile/administrateur/administrateur.component';
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
@@ -54,6 +57,9 @@ export const AdminLayoutRoutes: Routes = [
     // }
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'user-profile/patient',   component: PatientComponent },
+    { path: 'user-profile/administrateur',   component: AdministrateurComponent },
+    { path: 'user-profile/medecin',   component: MedecinComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
