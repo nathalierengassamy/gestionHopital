@@ -54,12 +54,31 @@
         </li>
     </ul>
   </div>
-    <ul class="nav">
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+   <ul class="nav">
+      <li routerLinkActive="active" *ngFor="let menuItem of menuItems" (click)="select(menuItem.title);" 
+      [ngClass]="{active: isActive(menuItem.title)}" class="{{menuItem.class}} nav-item">
             <a class="nav-link" [routerLink]="[menuItem.path]">
                 <i class="material-icons">{{menuItem.icon}}</i>
                 <p>{{menuItem.title}}</p>
             </a>
-        </li>
+            <ng-container *ngIf="menuItem.children && menuItem.children.length > 0">
+                <ul class="nav">
+                   <li routerLinkActive="active" *ngFor="let childmenu of menuItem.children" class="{{menuItem.class}} nav-item">
+                     <a class="nav-link" [routerLink]="[childmenu.path]">
+                       <i class="material-icons">{{childmenu.icon}}</i>
+                       <p>{{childmenu.title}}</p>
+                      </a>
+                   </li>
+                </ul>
+            </ng-container>
+            </li>
+            <!--<ul>
+                <li routerLinkActive="active" *ngFor="let n of menuItems" (click)="select(n.title);" 
+               [ngClass]="{active: isActive(n.title)}" class="{{n.class}} nav-item"><span>{{n.title}}</span>
+                 <ul style="display:none;">
+                  <li *ngFor="let child of n.children">{{child}}</li>
+                 </ul>
+                </li> 
+               </ul>-->
     </ul>
 </div>

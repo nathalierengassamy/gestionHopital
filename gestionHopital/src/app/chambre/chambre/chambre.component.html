@@ -1,0 +1,50 @@
+<div>
+    <h1>Chambre</h1>
+    <form (ngSubmit)="saveChambre()">
+        <table>
+            <tr>
+                <td>Numéro de Chambre</td>
+                <td><input type="test" [(ngModel)]="chambre.numChambre" name="numChambre"></td>
+            </tr>    
+            <tr>
+                <td>Capacite</td>
+                <td><input type="test" [(ngModel)]="chambre.capacite" name="capacite"></td>
+            </tr> 
+            <tr>
+                <td>Dossier</td>
+                <td><input type="test" [(ngModel)]="chambre.dossier" name="dossier"></td>
+            </tr> 
+            <tr>
+                <td>Date d'entrée</td>
+                <td><input type="test" [(ngModel)]="chambre.dateEntree" name="dateEntree"></td>
+            </tr>   
+            <tr>
+                <td>Date de sortie</td>
+                <td><input type="test" [(ngModel)]="chambre.dateSortie" name="dateSortie"></td>
+            </tr> 
+            <tr>
+                <td colspan="2"><button>Modifier</button></td>
+            </tr>  
+        </table>
+    </form>>
+</div>>
+<div>
+    <table>
+        <tr>
+            <th>Numéro de Chambre</th>
+            <th>Capacite</th>
+            <th>Dossier</th>
+            <th>Date d'entrée</th>
+            <th>Date de sortie</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let c of chambre">
+                <td>{{c.numChambre}}</td>
+                <td>{{c.capacite}}</td>
+                <td>{{c.dossier}}</td>
+                <td>{{c.dateEntree}}</td>
+                <td>{{c.dateSortie}}</td>
+                <td><button (click)="deletemessage(c.idChambre)">Delete</button></td>
+        </tr>
+    </table>
+    </div>

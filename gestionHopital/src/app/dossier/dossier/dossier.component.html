@@ -1,0 +1,44 @@
+<div>
+    <h1>Dossier</h1>
+    <form (ngSubmit)="saveDossier()">
+        <table>
+            <tr>
+                <td>Facture</td>
+                <td><input type="test" [(ngModel)]="dossier.facture" name="facture"></td>
+            </tr> 
+            <tr>
+                <td>Ordonnance</td>
+                <td><input type="test" [(ngModel)]="dossier.ordonnance" name="ordonnance"></td>
+            </tr>    
+            <tr>
+                <td>Chambre</td>
+                <td><input type="test" [(ngModel)]="dossier.chambre" name="chambre"></td>
+            </tr>
+            <tr>
+                <td>Utilisateur</td>
+                <td><input type="test" [(ngModel)]="dossier.user" name="user"></td>
+            </tr>    
+            <tr>
+                <td colspan="2"><button>Modifier</button></td>
+            </tr>  
+        </table>
+    </form>>
+</div>>
+<div>
+    <table>
+        <tr>
+            <th>Facture</th>
+            <th>Ordonnance</th>
+            <th>Chambre</th>
+            <th>Utilisateur</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let d of dossier">
+                <td>{{d.facture}</td>
+                <td>{{d.ordonnance}}</td>
+                <td>{{d.chambre}}</td>
+                <td>{{d.user}}</td>
+                <td><button (click)="deletedossier(d.idDossier)">Delete</button></td>
+        </tr>
+    </table>
+    </div>
