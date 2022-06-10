@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MessageService {
-  private baseURL = "http://localhost:7070/messages";
+  private baseURL = "http://localhost:9090/messages";
   constructor(private httpClient:HttpClient) { }
   public findAllMessage() : Observable<any>{
     return this.httpClient.get(this.baseURL);

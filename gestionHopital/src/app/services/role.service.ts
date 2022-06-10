@@ -5,17 +5,18 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DossierService {
-  private baseURL = "http://localhost:9090/dossiers";
+export class RoleService {
+
+  private baseURL = "http://localhost:9090/ordonnances";
   constructor(private httpClient:HttpClient) { }
-  public findAllDossier() : Observable<any>{
+  public findAllRole() : Observable<any>{
     return this.httpClient.get(this.baseURL);
 }
-public deleteDossier(id:number):Observable<any>{
+public deleteRole(id:number):Observable<any>{
   return this.httpClient.delete(this.baseURL+"/"+id);
 }
 
-public saveDossier(message:any):Observable<any>{
+public saveRole(message:any):Observable<any>{
   return this.httpClient.post(this.baseURL,message);
 }
 }

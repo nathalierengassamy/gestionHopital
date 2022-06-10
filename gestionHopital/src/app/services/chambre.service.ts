@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChambreService {
-  private baseURL = "http://localhost:7070/chambres";
+  private baseURL = "http://localhost:9090/chambres";
   constructor(private httpClient:HttpClient) { }
   public findAllChambre() : Observable<any>{
     return this.httpClient.get(this.baseURL);

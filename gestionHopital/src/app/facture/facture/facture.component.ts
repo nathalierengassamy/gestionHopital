@@ -18,7 +18,7 @@ export class FactureComponent implements OnInit {
   }
 
   findAllFacture(){
-    this.factureService.findAllFacture().subscribe(data => {this.facture = data;});
+    this.factureService.findAllFacture().subscribe(data => {this.factures = data;});
   }
   deleteFacture(id:number){
     this.factureService.deleteFacture(id).subscribe(()=>{this.findAllFacture()});

@@ -18,7 +18,7 @@ export class DossierComponent implements OnInit {
   }
 
   findAllDossier(){
-    this.dossierService.findAllDossier().subscribe(data => {this.dossier = data;});
+    this.dossierService.findAllDossier().subscribe(data => {this.dossiers = data;});
   }
   deleteDossier(id:number){
     this.dossierService.deleteDossier(id).subscribe(()=>{this.findAllDossier()});

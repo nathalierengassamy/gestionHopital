@@ -17,7 +17,7 @@ export class OrdonnanceComponent implements OnInit {
     this.findAllOrdonnance();
   }
   findAllOrdonnance(){
-    this.ordonnanceService.findAllOrdonnance().subscribe(data => {this.ordonnance = data;});
+    this.ordonnanceService.findAllOrdonnance().subscribe(data => {this.ordonnances = data;});
   }
   deleteOrdonnance(id:number){
     this.ordonnanceService.deleteOrdonnance(id).subscribe(()=>{this.findAllOrdonnance()});

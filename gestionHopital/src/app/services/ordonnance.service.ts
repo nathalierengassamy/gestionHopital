@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrdonnanceService {
-  private baseURL = "http://localhost:7070/ordonnances";
+  private baseURL = "http://localhost:9090/ordonnances";
   constructor(private httpClient:HttpClient) { }
   public findAllOrdonnance() : Observable<any>{
     return this.httpClient.get(this.baseURL);

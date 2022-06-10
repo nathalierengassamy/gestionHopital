@@ -1,3 +1,5 @@
+import { Utilisateur } from "./utilisateur";
+
 export class RDV {
     idRDV:number;
     typeRDV:String;

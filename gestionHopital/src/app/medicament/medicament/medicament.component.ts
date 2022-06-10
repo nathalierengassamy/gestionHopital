@@ -18,7 +18,7 @@ export class MedicamentComponent implements OnInit {
   }
 
   findAllMedicament(){
-    this.medicamentService.findAllMedicament().subscribe(data => {this.medicament = data;});
+    this.medicamentService.findAllMedicament().subscribe(data => {this.medicaments = data;});
   }
   deleteMedicament(id:number){
     this.medicamentService.deleteMedicament(id).subscribe(()=>{this.findAllMedicament()});

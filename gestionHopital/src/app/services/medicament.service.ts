@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MedicamentService {
-  private baseURL = "http://localhost:7070/medicaments";
+  private baseURL = "http://localhost:9090/medicaments";
   constructor(private httpClient:HttpClient) { }
   public findAllMedicament() : Observable<any>{
     return this.httpClient.get(this.baseURL);
