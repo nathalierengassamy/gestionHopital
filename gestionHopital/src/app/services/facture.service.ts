@@ -15,7 +15,7 @@ public deleteFacture(id:number):Observable<any>{
   return this.httpClient.delete(this.baseURL+"/"+id);
 }
 
-public saveFacture(message:any):Observable<any>{
-  return this.httpClient.post(this.baseURL,message);
+public saveFacture(facture:any):Observable<any>{
+  return this.httpClient.post(this.baseURL,facture);
 }
 }

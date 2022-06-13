@@ -11,19 +11,19 @@ export class RoleComponent implements OnInit {
   roles!: any[];
   role:Role=new Role();
 
-  constructor(private ordonnanceService:RoleService) { }
+  constructor(private roleService:RoleService) { }
 
   ngOnInit(): void {
     this.findAllRole();
   }
   findAllRole(){
-    this.ordonnanceService.findAllRole().subscribe(data => {this.role = data;});
+    this.roleService.findAllRole().subscribe(data => {this.role = data;});
   }
   deleteOrdonnance(id:number){
-    this.ordonnanceService.deleteRole(id).subscribe(()=>{this.findAllRole()});
+    this.roleService.deleteRole(id).subscribe(()=>{this.findAllRole()});
   }
   saveOrdonnance(){
-    this.ordonnanceService.saveRole(this.role).subscribe(()=>{
+    this.roleService.saveRole(this.role).subscribe(()=>{
       this.findAllRole();
       this.role = new Role();
     })

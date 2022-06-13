@@ -1,4 +1,490 @@
 <div class="main-content">
-  <div class="container-fluid">
-  </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-tabs card-header-info">
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <span class="nav-tabs-title">Je suis l'administrateur:</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link active" href="#medecins" data-toggle="tab">
+                                            compte medecins
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#patients" data-toggle="tab">
+                                            Compte patients
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#dossiers" data-toggle="tab">
+                                            Dossier
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#chambres" data-toggle="tab">
+                                            Chambres
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#factures" data-toggle="tab">
+                                            Factures
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#medicaments" data-toggle="tab">
+                                            Stock medicaments
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#statitiques" data-toggle="tab">
+                                            Statistiques
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="medecins">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <h1>Medecin</h1>
+                                                    <form (ngSubmit)="saveUtilisateur()">
+                                                        <table>
+                                                            <tr>
+                                                                <td><label>Nom</label></td>
+                                                                <td><input type="text" [(ngModel)]="utilisateur.nomUtilisateur" name="nomUtilisateur"></td>
+                                                            </tr>    
+                                                            <tr>
+                                                                <td><label>Prénom</label></td>
+                                                                <td><input type="text" [(ngModel)]="utilisateur.prenomUtilisateur" name="prenomUtilisateur"></td>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td><label>Username</label></td>
+                                                                <td><input type="text" [(ngModel)]="utilisateur.username" name="username"></td>
+                                                            </tr>  
+                                                            <tr>
+                                                                <td><label>Date de naissance</label></td>
+                                                                <td><input type="date" [(ngModel)]="utilisateur.dateNaissance" name="dateNaissance"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><label>Adresse</label></td>
+                                                                <td><input type="text" [(ngModel)]="utilisateur.adresse" name="adresse"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><label>Age</label></td>
+                                                                <td><input type="number" [(ngModel)]="utilisateur.age" name="age"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><label>Role</label></td>
+                                                                <select multiple name="roles" [(ngModel)]="utilisateur.roles">
+                                                                    <option *ngFor="let r of role" [ngValue]="r">
+                                                                      {{r.libelle}} 
+                                                                    </option>
+                                                                  </select>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td><label>Telephone</label></td>
+                                                                <td><input type="tel" [(ngModel)]="utilisateur.telephone" name="telephone"></td>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td colspan="2"><button>Ajouter</button></td>
+                                                            </tr>  
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <th>Nom</th>
+                                                            <th>Prenom</th>
+                                                            <th>Username</th>
+                                                            <th>Date de naissance</th>
+                                                            <th>Adresse</th>
+                                                            <th>Age</th>
+                                                            <th>Role</th>
+                                                            <th>Telephone</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        <tr *ngFor="let u of utilisateurs">
+                                                                <td>{{u.nomUtilisateur}}</td>
+                                                                <td>{{u.prenomUtilisateur}}</td>
+                                                                <td>{{u.username}}</td>
+                                                                <td>{{u.dateNaissance}}</td>
+                                                                <td>{{u.age}}</td>
+                                                                <td>{{u.adresse}}</td>
+                                                                <td>{{u.roles}}</td>
+                                                                <td>{{u.telephone}}</td>
+                                                                <td><button (click)="deleteUtilisateur(u.idUtilisateur)">Delete</button></td>
+                                                        </tr>
+                                                    </table>
+                                                    </div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="patients">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <h1>Patient</h1>
+                                                    <form (ngSubmit)="saveUtilisateur()">
+                                                        <table>
+                                                            <tr>
+                                                                <td><label>Nom</label></td>
+                                                                <td><input type="text" [(ngModel)]="utilisateur.nomUtilisateur" name="nomUtilisateur"></td>
+                                                            </tr>    
+                                                            <tr>
+                                                                <td><label>Prénom</label></td>
+                                                                <td><input type="text" [(ngModel)]="utilisateur.prenomUtilisateur" name="prenomUtilisateur"></td>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td><label>Username</label></td>
+                                                                <td><input type="text" [(ngModel)]="utilisateur.username" name="username"></td>
+                                                            </tr>  
+                                                            <tr>
+                                                                <td><label>Date de naissance</label></td>
+                                                                <td><input type="date" [(ngModel)]="utilisateur.dateNaissance" name="dateNaissance"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><label>Adresse</label></td>
+                                                                <td><input type="text" [(ngModel)]="utilisateur.adresse" name="adresse"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><label>Age</label></td>
+                                                                <td><input type="number" [(ngModel)]="utilisateur.age" name="age"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><label>Role</label></td>
+                                                                <select multiple name="roles" [(ngModel)]="utilisateur.roles">
+                                                                    <option *ngFor="let r of role" [ngValue]="r">
+                                                                      {{r.libelle}} 
+                                                                    </option>
+                                                                  </select>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td><label>Telephone</label></td>
+                                                                <td><input type="tel" [(ngModel)]="utilisateur.telephone" name="telephone"></td>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td colspan="2"><button>Ajouter</button></td>
+                                                            </tr>  
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <th>Nom</th>
+                                                            <th>Prenom</th>
+                                                            <th>Username</th>
+                                                            <th>Date de naissance</th>
+                                                            <th>Adresse</th>
+                                                            <th>Age</th>
+                                                            <th>Role</th>
+                                                            <th>Telephone</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        <tr *ngFor="let u of utilisateurs">
+                                                                <td>{{u.nomUtilisateur}}</td>
+                                                                <td>{{u.prenomUtilisateur}}</td>
+                                                                <td>{{u.username}}</td>
+                                                                <td>{{u.dateNaissance}}</td>
+                                                                <td>{{u.age}}</td>
+                                                                <td>{{u.adresse}}</td>
+                                                                <td>{{u.roles}}</td>
+                                                                <td>{{u.telephone}}</td>
+                                                                <td><button (click)="deleteUtilisateur(u.idUtilisateur)">Delete</button></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="dossiers">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <h1>Dossier</h1>
+                                                    <form (ngSubmit)="saveDossier()">
+                                                        <table>
+                                                            <tr>
+                                                                <td>Facture</td>
+                                                                <select multiple name="factures" [(ngModel)]="dossier.factures">
+                                                                    <option *ngFor="let f of factures" [ngValue]="f">
+                                                                      {{f.montant}} 
+                                                                    </option>
+                                                                  </select>
+                                                            </tr>    
+                                                            <tr>
+                                                                <td>Ordonnance</td>
+                                                                <select multiple name="ordonnances" [(ngModel)]="dossier.ordonnances">
+                                                                    <option *ngFor="let o of ordonnances" [ngValue]="o">
+                                                                      {{o.consigne}} 
+                                                                    </option>
+                                                                  </select>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td>Chambre</td>
+                                                                <select multiple name="chambres" [(ngModel)]="dossier.chambres">
+                                                                    <option *ngFor="let c of chambres" [ngValue]="c">
+                                                                      {{c.numChambre}} 
+                                                                    </option>
+                                                                  </select>
+                                                            </tr>  
+                                                            <tr>
+                                                                <td>Patient</td>
+                                                                <select multiple name="user" [(ngModel)]="dossier.user">
+                                                                    <option *ngFor="let u of utilisateurs" [ngValue]="u">
+                                                                      {{utilisateur.nomUtilisateur}} 
+                                                                    </option>
+                                                                  </select>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"><button>Ajouter</button></td>
+                                                            </tr>  
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <th>Facture</th>
+                                                            <th>Ordonnance</th>
+                                                            <th>Chambre</th>
+                                                            <th>Patient</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        <tr *ngFor="let d of dossiers">
+                                                                <td>{{d.factures}}</td>
+                                                                <td>{{d.ordonnances}}</td>
+                                                                <td>{{d.chambre}}</td>
+                                                                <td>{{d.user}}</td>
+                                                                <td><button (click)="deleteDossier(d.idDossier)">Delete</button></td>
+                                                        </tr>
+                                                    </table>
+                                                    </div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="chambres">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <h1>Chambre</h1>
+                                                    <form (ngSubmit)="saveChambre()">
+                                                        <table>
+                                                            <tr>
+                                                                <td>Numéro de Chambre</td>
+                                                                <td><input type="number" [(ngModel)]="chambre.numChambre" name="numChambre"></td>
+                                                            </tr>    
+                                                            <tr>
+                                                                <td>Capacite</td>
+                                                                <td><input type="number" [(ngModel)]="chambre.capacite" name="capacite"></td>
+                                                            </tr> 
+                                                            <!--<tr>
+                                                                <td>Dossier</td>
+                                                                <td><input type="test" [(ngModel)]="chambre.dossier" name="dossier"></td>
+                                                            </tr> -->
+                                                            <tr>
+                                                                <td>Date d'entrée</td>
+                                                                <td><input type="date" [(ngModel)]="chambre.dateEntree" name="dateEntree"></td>
+                                                            </tr>   
+                                                            <tr>
+                                                                <td>Date de sortie</td>
+                                                                <td><input type="date" [(ngModel)]="chambre.dateSortie" name="dateSortie"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Occupation</td>
+                                                                <td><input type="checkbox" [(ngModel)]="chambre.occupe" name="occupe"></td>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td colspan="2"><button>Ajouter</button></td>
+                                                            </tr>  
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <th>Numéro de Chambre</th>
+                                                            <th>Capacite</th>
+                                                            <!--<th>Dossier</th>-->
+                                                            <th>Date d'entrée</th>
+                                                            <th>Date de sortie</th>
+                                                            <th>Occupation</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        <tr *ngFor="let c of chambres">
+                                                                <td>{{c.numChambre}}</td>
+                                                                <td>{{c.capacite}}</td>
+                                                               <!-- <td>{{c.dossier}}</td>-->
+                                                                <td>{{c.dateEntree}}</td>
+                                                                <td>{{c.dateSortie}}</td>
+                                                                <td>{{c.occupe}}</td>
+                                                                <td><button (click)="deleteChambre(c.idChambre)">Delete</button></td>
+                                                        </tr>
+                                                    </table>
+                                                    </div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="factures">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <h1>Facture</h1>
+                                                    <form (ngSubmit)="saveFacture()">
+                                                        <table>
+                                                            <tr>
+                                                                <td>Montant</td>
+                                                                <td><input type="number" [(ngModel)]="facture.montant" name="montant"></td>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td>Destinataire</td>
+                                                                <td><input type="text" [(ngModel)]="facture.destinataire" name="destinataire"></td>
+                                                            </tr> 
+                                                            <!--<tr>
+                                                                <td>Dossier</td>
+                                                                <td><input type="test" [(ngModel)]="facture.dossier" name="dossier"></td>
+                                                            </tr> -->   
+                                                            <tr>
+                                                                <td colspan="2"><button>Créer</button></td>
+                                                            </tr>  
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <th>Montant</th>
+                                                            <th>Destinataire</th>
+                                                            <!--<th>Dossier</th>-->
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        <tr *ngFor="let f of factures">
+                                                                <td>{{f.montant}}</td>
+                                                                <td>{{f.destinataire}}</td>
+                                                                <!--<td>{{f.dossier}}</td>-->
+                                                                <td><button (click)="deleteFacture(f.idFacture)">Delete</button></td>
+                                                        </tr>
+                                                    </table>
+                                                    </div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="medicaments">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <h1>Medicament</h1>
+                                                    <form (ngSubmit)="saveMedicament()">
+                                                        <table>
+                                                            <tr>
+                                                                <td>Libelle</td>
+                                                                <td><input type="text" [(ngModel)]="medicament.libelleMedicament" name="libelleMedicament"></td>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td>Prix</td>
+                                                                <td><input type="number" [(ngModel)]="medicament.prixMedicament" name="prixMedicament"></td>
+                                                            </tr>    
+                                                            <tr>
+                                                                <td>Date d'expiration</td>
+                                                                <td><input type="date" [(ngModel)]="medicament.dateExpiration" name="dateExpiration"></td>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td>Stock</td>
+                                                                <td><input type="number" [(ngModel)]="medicament.stock" name="stock"></td>
+                                                            </tr> 
+                                                            <!--<tr>
+                                                                <td>Ordonnance</td>
+                                                                <td><input type="test" [(ngModel)]="medicament.ordonnances" name="ordonnance"></td>
+                                                            </tr>--> 
+                                                            <!--<tr>
+                                                                <td>Utilisateur</td>
+                                                                <td><input type="test" [(ngModel)]="medicament.utilisateur" name="utilisateur"></td>
+                                                            </tr>-->    
+                                                            <tr>
+                                                                <td colspan="2"><button>Ajouter</button></td>
+                                                            </tr>  
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <th>Libelle</th>
+                                                            <th>Prix</th>
+                                                            <th>Date d'expiration</th>
+                                                            <th>Stock</th>
+                                                            <!--<th>Ordonnance</th>-->
+                                                            <!--<th>Utilisateur</th>-->
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        <tr *ngFor="let m of medicaments">
+                                                                <td>{{m.libelleMedicament}}</td>
+                                                                <td>{{m.prixMedicament}}</td>
+                                                                <td>{{m.dateExpiration}}</td>
+                                                                <td>{{m.stock}}</td>
+                                                                <!--<td>{{m.ordonnance}}</td>-->
+                                                                <!--<td>{{m.user}}</td>-->
+                                                                <td><button (click)="deleteMedicament(m.idMedicament)">Delete</button></td>
+                                                        </tr>
+                                                    </table>
+                                                    </div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="statitiques">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div><p>Coucou statitiques</p></div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

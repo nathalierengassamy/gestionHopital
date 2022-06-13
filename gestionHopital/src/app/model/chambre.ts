@@ -7,4 +7,5 @@ export class Chambre {
     dossier:Dossier[];
     dateEntree:Date;
     dateSortie:Date;
+    occupe!:boolean;
 }
