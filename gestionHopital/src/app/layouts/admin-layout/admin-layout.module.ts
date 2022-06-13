@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
+import { PatientComponent } from '../../user-profile/patient/patient.component';
+import { MedecinComponent } from '../../user-profile/medecin/medecin.component';
+import { AdministrateurComponent } from '../../user-profile/administrateur/administrateur.component';
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
@@ -34,6 +37,9 @@ import {MatSelectModule} from '@angular/material/select';
   declarations: [
     DashboardComponent,
     UserProfileComponent,
+    MedecinComponent,
+    AdministrateurComponent,
+    PatientComponent,
     TableListComponent,
     TypographyComponent,
     IconsComponent,
