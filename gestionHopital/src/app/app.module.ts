@@ -14,9 +14,6 @@ import { MedicamentComponent } from './medicament/medicament/medicament.componen
 import { FactureComponent } from './facture/facture/facture.component';
 import { DossierComponent } from './dossier/dossier/dossier.component';
 import { ChambreComponent } from './chambre/chambre/chambre.component';
-import { PatientComponent } from './user-profile/patient/patient.component';
-import { MedecinComponent } from './user-profile/medecin/medecin.component';
-import { AdministrateurComponent } from './user-profile/administrateur/administrateur.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { RoleComponent } from './role/role.component';
@@ -44,9 +41,6 @@ import { InfospratiquesComponent } from './infospratiques/infospratiques.compone
     FactureComponent,
     DossierComponent,
     ChambreComponent,
-    PatientComponent,
-    MedecinComponent,
-    AdministrateurComponent,
     UtilisateurComponent,
     RoleComponent,
     InfospratiquesComponent,
