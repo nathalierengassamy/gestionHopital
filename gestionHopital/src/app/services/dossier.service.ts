@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DossierService {
-  private baseURL = "http://localhost:7070/dossiers";
+  private baseURL = "http://localhost:9090/dossiers";
   constructor(private httpClient:HttpClient) { }
   public findAllDossier() : Observable<any>{
     return this.httpClient.get(this.baseURL);

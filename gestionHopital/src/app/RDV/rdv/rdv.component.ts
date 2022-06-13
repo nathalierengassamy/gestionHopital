@@ -18,7 +18,7 @@ export class RDVComponent implements OnInit {
   }
 
   findAllRDV(){
-    this.rdvService.findAllRDV().subscribe(data => {this.rdv = data;});
+    this.rdvService.findAllRDV().subscribe(data => {this.rdvs = data;});
   }
   deleteRDV(id:number){
     this.rdvService.deleteRDV(id).subscribe(()=>{this.findAllRDV()});

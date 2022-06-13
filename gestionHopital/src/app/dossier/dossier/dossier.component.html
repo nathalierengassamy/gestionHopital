@@ -4,15 +4,15 @@
         <table>
             <tr>
                 <td>Facture</td>
-                <td><input type="test" [(ngModel)]="dossier.facture" name="facture"></td>
+                <td><input type="test" [(ngModel)]="dossier.factures" name="factures"></td>
             </tr> 
             <tr>
                 <td>Ordonnance</td>
-                <td><input type="test" [(ngModel)]="dossier.ordonnance" name="ordonnance"></td>
+                <td><input type="test" [(ngModel)]="dossier.ordonnances" name="ordonnances"></td>
             </tr>    
             <tr>
                 <td>Chambre</td>
-                <td><input type="test" [(ngModel)]="dossier.chambre" name="chambre"></td>
+                <td><input type="test" [(ngModel)]="dossier.chambres" name="chambres"></td>
             </tr>
             <tr>
                 <td>Utilisateur</td>
@@ -34,11 +34,11 @@
             <th>Action</th>
         </tr>
         <tr *ngFor="let d of dossier">
-                <td>{{d.facture}</td>
-                <td>{{d.ordonnance}}</td>
-                <td>{{d.chambre}}</td>
+                <td>{{d.factures}</td>
+                <td>{{d.ordonnances}}</td>
+                <td>{{d.chambres}}</td>
                 <td>{{d.user}}</td>
-                <td><button (click)="deletedossier(d.idDossier)">Delete</button></td>
+                <td><button (click)="deleteDossier(d.idDossier)">Delete</button></td>
         </tr>
     </table>
     </div>

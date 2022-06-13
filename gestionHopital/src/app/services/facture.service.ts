@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FactureService {
-  private baseURL = "http://localhost:7070/factures";
+  private baseURL = "http://localhost:9090/factures";
   constructor(private httpClient:HttpClient) { }
   public findAllFacture() : Observable<any>{
     return this.httpClient.get(this.baseURL);
@@ -15,7 +15,7 @@ public deleteFacture(id:number):Observable<any>{
   return this.httpClient.delete(this.baseURL+"/"+id);
 }
 
-public saveFacture(message:any):Observable<any>{
-  return this.httpClient.post(this.baseURL,message);
+public saveFacture(facture:any):Observable<any>{
+  return this.httpClient.post(this.baseURL,facture);
 }
 }

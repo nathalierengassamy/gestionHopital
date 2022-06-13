@@ -18,7 +18,7 @@ export class MessageComponent implements OnInit {
   }
 
   findAllMessage(){
-    this.messageService.findAllMessage().subscribe(data => {this.message = data;});
+    this.messageService.findAllMessage().subscribe(data => {this.messages = data;});
   }
   deleteMessage(id:number){
     this.messageService.deleteMessage(id).subscribe(()=>{this.findAllMessage()});

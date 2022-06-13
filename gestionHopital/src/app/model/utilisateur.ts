@@ -8,6 +8,7 @@ export class Utilisateur {
     username!:string;
     password!:string;
     dateNaissance!:Date;
+    age!:number;
     adresse!:String;
     ageUtilisateur!:number;
     telephone!:number;
