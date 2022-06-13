@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
@@ -20,6 +20,18 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import { UtilisateurService } from 'app/services/utilisateur.service';
+import { RoleService } from 'app/services/role.service';
+import { ChambreService } from 'app/services/chambre.service';
+import { AdministrateurService } from 'app/services/administrateur.service';
+import { DossierService } from 'app/services/dossier.service';
+import { MedicamentService } from 'app/services/medicament.service';
+import { FactureService } from 'app/services/facture.service';
+import { OrdonnanceService } from 'app/services/ordonnance.service';
+import { MessageService } from 'app/services/message.service';
+import { RDVService } from 'app/services/rdv.service';
+import { Title } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -33,6 +45,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    HttpClientModule
   ],
   declarations: [
     DashboardComponent,
@@ -46,7 +59,23 @@ import {MatSelectModule} from '@angular/material/select';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-  ]
+  ],
+  providers: [
+    UtilisateurService,
+    RoleService,
+    ChambreService,
+    AdministrateurService,
+    DossierService,
+    FactureService,
+    MedicamentService,
+    MessageService,
+    OrdonnanceService,
+    RDVService,
+    {
+      provide: LocationStrategy,
+      useClass : HashLocationStrategy,
+    },
+    Title],
 })
 
 export class AdminLayoutModule {}

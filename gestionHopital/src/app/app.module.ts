@@ -14,9 +14,21 @@ import { MedicamentComponent } from './medicament/medicament/medicament.componen
 import { FactureComponent } from './facture/facture/facture.component';
 import { DossierComponent } from './dossier/dossier/dossier.component';
 import { ChambreComponent } from './chambre/chambre/chambre.component';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { RoleComponent } from './role/role.component';
+import { UtilisateurService } from './services/utilisateur.service';
+import { RoleService } from './services/role.service';
+import { ChambreService } from './services/chambre.service';
+import { AdministrateurService } from './services/administrateur.service';
+import { DossierService } from './services/dossier.service';
+import { FactureService } from './services/facture.service';
+import { MedicamentService } from './services/medicament.service';
+import { MessageService } from './services/message.service';
+import { OrdonnanceService } from './services/ordonnance.service';
+import { RDVService } from './services/rdv.service';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import PerfectScrollbar from 'perfect-scrollbar';
 
 @NgModule({
   imports: [
@@ -44,7 +56,23 @@ import { RoleComponent } from './role/role.component';
     RoleComponent,
 
   ],
-  providers: [],
+  providers: [
+    UtilisateurService,
+    RoleService,
+    ChambreService,
+    AdministrateurService,
+    DossierService,
+    FactureService,
+    MedicamentService,
+    MessageService,
+    OrdonnanceService,
+    RDVService,
+    {
+      provide: LocationStrategy,
+      useClass : HashLocationStrategy,
+    },
+    Title
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
