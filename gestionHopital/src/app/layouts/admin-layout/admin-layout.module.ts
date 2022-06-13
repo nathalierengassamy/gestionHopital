@@ -20,6 +20,8 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import { MentionsComponent } from 'app/mentions/mentions/mentions.component';
+import { ContactComponent } from 'app/contact/contact/contact.component';
 
 @NgModule({
   imports: [
@@ -46,6 +48,8 @@ import {MatSelectModule} from '@angular/material/select';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    MentionsComponent,
+    ContactComponent,
   ]
 })
 

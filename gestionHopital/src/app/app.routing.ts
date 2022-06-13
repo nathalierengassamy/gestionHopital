@@ -4,6 +4,8 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { MentionsComponent } from './mentions/mentions/mentions.component';
+import { ContactComponent } from './contact/contact/contact.component';
 
 const routes: Routes =[
   {
@@ -17,6 +19,10 @@ const routes: Routes =[
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
     }]
+  },  {
+    path: 'mentions', component : MentionsComponent
+  },  {
+    path: 'contact', component : ContactComponent
   }
 ];
 
