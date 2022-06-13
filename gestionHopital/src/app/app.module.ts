@@ -20,6 +20,7 @@ import { AdministrateurComponent } from './user-profile/administrateur/administr
 import { BrowserModule } from '@angular/platform-browser';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { RoleComponent } from './role/role.component';
+import { InfospratiquesComponent } from './infospratiques/infospratiques.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { RoleComponent } from './role/role.component';
     AdministrateurComponent,
     UtilisateurComponent,
     RoleComponent,
+    InfospratiquesComponent,
 
   ],
   providers: [],
