@@ -1,4 +1,30 @@
 img {
+    width:450px;
+    height:297px;
+  }
+
+  /*ul,li { margin:0 ; padding:0 }*/
+  div#conteneur {  
     border: 2px solid rgb(19, 164, 231);
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 5px 5px 5px grey;    
+    width:450px; /* Soit 220px * 3 images */
+    height:297px;
+    overflow:hidden;
+  }
+  div#tab1{
+    display: table;
+    width:450px; /* Soit 220px * 7 images */
+    animation: slide-image 20s ease 0s infinite alternate;
+  }
+  div#tab1 div#tab2{
+    display: table-cell;
+    width:450px;
+    height:297px;
+    text-align:center;
+    vertical-align:middle;
+  }
+  @keyframes slide-image{
+    from,20%  {margin-left:   0px;}
+    20%,40%   {margin-left:-450px;}
+    40%,60%   {margin-left:-900px;}
   }

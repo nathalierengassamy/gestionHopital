@@ -3,7 +3,13 @@
     <br>
     <div class="container-fluid">
       <div class="row">
-          <img src='https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image' width="450" height="297">
+        <div id='conteneur'>
+            <div id='tab1'>
+          <div id='tab2'><img src='https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image'></div>
+          <div id='tab2'><img src='https://images.pexels.com/photos/239853/pexels-photo-239853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image'></div>
+          <div id='tab2'><img src='https://images.pexels.com/photos/11719831/pexels-photo-11719831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image'></div>
+        </div>
+        </div>
           <div class="col-lg-6 col-md-12">
               <div class="card">
                   <div class="card-header card-header-tabs card-header-info">
@@ -316,7 +322,13 @@
       <br>
       <br>
       <div class="row">
-          <img src='https://images.pexels.com/photos/3376799/pexels-photo-3376799.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image' width="450" height="297">
+        <div id='conteneur'>
+            <div id='tab1'>
+          <div id='tab2'><img src='https://images.pexels.com/photos/3376799/pexels-photo-3376799.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image'></div>
+          <div id='tab2'><img src='https://images.pexels.com/photos/1250655/pexels-photo-1250655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image'></div>
+          <div id='tab2'><img src='https://images.pexels.com/photos/3279209/pexels-photo-3279209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image'></div>
+        </div>
+        </div>
           <div class="col-lg-6 col-md-12">
               <div class="card">
                   <div class="card-header card-header-info">
@@ -326,30 +338,16 @@
                   <div class="card-body table-responsive">
                       <table class="table table-hover">
                           <thead class="text-info">
-                              <th>ID</th>
                               <th>Nom</th>
                               <th>Prénom</th>
                               <th>Numéro de téléphone</th>
                           </thead>
                           <tbody>
-                              <tr>
-                                  <td>1</td>
-                                  <td>Grey</td>
-                                  <td>Meredith </td>
-                                  <td>01 56 89 74 52</td>
-                              </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>Shepherd</td>
-                                  <td>Derek</td>
-                                  <td>01 56 89 74 53</td>
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>Karev</td>
-                                  <td>Alex </td>
-                                  <td>01 56 89 74 54</td>
-                              </tr>
+                            <tr *ngFor="let u of utilisateurs">
+                                <td>{{u.nomUtilisateur}}</td>
+                                <td>{{u.prenomUtilisateur}}</td>
+                                <td>{{u.telephone}}</td>
+                        </tr>
                           </tbody>
                       </table>
                   </div>
@@ -358,7 +356,13 @@
       </div>
       <br>
       <div class="row">
-          <img src='https://images.pexels.com/photos/532786/pexels-photo-532786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image' width="450" height="297">
+        <div id='conteneur'>
+            <div id='tab1'>
+          <div id='tab2'><img src='https://images.pexels.com/photos/532786/pexels-photo-532786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image'></div>
+          <div id='tab2'><img src='https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image'></div>
+          <div id='tab2'><img src='https://images.pexels.com/photos/3845126/pexels-photo-3845126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image'></div>
+        </div>
+        </div>
           <div class="col-lg-6 col-md-12">
               <div class="card">
                   <div class="card-header card-header-info">
@@ -381,7 +385,7 @@
                                                   </label>
                                               </div> -->
                                           </td>
-                                          <td>Je prends un rendez-vous pour moi</td>
+                                          <td><button routerLink="/table-list">Je prends un rendez-vous</button></td>
                                           <td class="td-actions text-right">
                                             <!-- <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
                                                   <i class="material-icons">edit</i>
@@ -391,37 +395,36 @@
                                               </button> -->
                                           </td>
                                       </tr>
-                                      <tr>
+                                      <!-- <tr>
                                           <td>
-                                              <!-- <div class="form-check">
+                                              <div class="form-check">
                                                   <label class="form-check-label">
                                                       <input class="form-check-input" type="checkbox" value="">
                                                       <span class="form-check-sign">
                                                           <span class="check"></span>
                                                       </span>
                                                   </label>
-                                              </div> -->
+                                              </div>
                                           </td>
                                           <td>Je prends un rendez-vous pour mon enfant</td>
                                           <td class="td-actions text-right">
-                                              <!-- <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
                                                   <i class="material-icons">edit</i>
                                               </button>
                                               <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
                                                   <i class="material-icons">close</i>
-                                              </button> -->
-                                          </td>
+                                              </button>
                                       </tr>
                                       <tr>
                                           <td>
-                                              <!-- <div class="form-check">
+                                              <div class="form-check">
                                                   <label class="form-check-label">
                                                       <input class="form-check-input" type="checkbox" value="">
                                                       <span class="form-check-sign">
                                                           <span class="check"></span>
                                                       </span>
                                                   </label>
-                                              </div> -->
+                                              </div>
                                           </td>
                                           <td>Je prends un rendez-vous pour un tiers
                                           </td>
@@ -431,9 +434,9 @@
                                               </button>
                                               <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
                                                   <i class="material-icons">close</i>
-                                              </button> -->
+                                              </button>
                                           </td>
-                                      </tr>
+                                      </tr> -->
                                       <!-- <tr>
                                           <td>
                                               <div class="form-check">
@@ -703,5 +706,5 @@
             </div>
         </div>
     </div>
-  </div> 
+  </div>
 
