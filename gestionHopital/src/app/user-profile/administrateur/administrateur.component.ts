@@ -14,7 +14,6 @@ import { RoleService } from 'app/services/role.service';
 import { Ordonnance } from 'app/model/ordonnance';
 import { OrdonnanceService } from 'app/services/ordonnance.service';
 import { AppService } from 'app/app.service';
-import { AdminLayoutService } from 'app/layouts/admin-layout/admin-layout.service';
 
 @Component({
   selector: 'app-administrateur',
@@ -38,7 +37,7 @@ export class AdministrateurComponent implements OnInit {
   ordonnance:Ordonnance=new Ordonnance();
 
   
-  constructor(private adminLayoutService:AdminLayoutService,private chambreService:ChambreService, private utilisateurService:UtilisateurService, private medicamentService:MedicamentService, private factureService:FactureService,
+  constructor(private appService:AppService,private chambreService:ChambreService, private utilisateurService:UtilisateurService, private medicamentService:MedicamentService, private factureService:FactureService,
     private dossierService:DossierService, private roleService:RoleService, private ordonnanceService:OrdonnanceService) { }
 
   ngOnInit(): void {
@@ -145,11 +144,11 @@ export class AdministrateurComponent implements OnInit {
   }
 
   authenticated(){
-    return this.adminLayoutService.authenticated;
+    return this.appService.authenticated;
   }
   authorities() {
-    console.log("isAdmin" + this.adminLayoutService.isAdmin);
-    if(this.adminLayoutService.isAdmin==true) {
+    console.log("isAdmin" + this.appService.isAdmin);
+    if(this.appService.isAdmin==true) {
       return false;
     }else{
       return false;

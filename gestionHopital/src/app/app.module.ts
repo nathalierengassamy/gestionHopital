@@ -17,7 +17,6 @@ import { ChambreComponent } from './chambre/chambre/chambre.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { RoleComponent } from './role/role.component';
-<<<<<<< HEAD
 import { ContactComponent } from './contact/contact/contact.component';
 import { AppService } from './app.service';
 import { UtilisateurService } from './services/utilisateur.service';
@@ -34,8 +33,6 @@ export class XhrInterceptor implements HttpInterceptor{
   }
   
 }
-=======
->>>>>>> 53f80f6e3930106c06868db7adcc339e873b2d30
 
 @NgModule({
   imports: [
