@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -18,6 +18,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { RoleComponent } from './role/role.component';
 import { ContactComponent } from './contact/contact/contact.component';
+import { AppService } from './app.service';
+import { UtilisateurService } from './services/utilisateur.service';
+import { RoleService } from './services/role.service';
+import { Observable } from 'rxjs';
+
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor{
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+ const xhr=req.clone({
+  headers: req.headers.set('X-Requested-With','XMLHttpRequest')
+ });   
+    return next.handle(xhr);
+  }
+  
+}
 
 @NgModule({
   imports: [
@@ -45,7 +60,12 @@ import { ContactComponent } from './contact/contact/contact.component';
     RoleComponent,
 
   ],
-  providers: [],
+  providers: [
+    AppService,
+    UtilisateurService,
+    RoleService,
+    {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,6 +22,23 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { MentionsComponent } from 'app/mentions/mentions/mentions.component';
 import { ContactComponent } from 'app/contact/contact/contact.component';
+import { AppService } from 'app/app.service';
+import { UtilisateurService } from 'app/services/utilisateur.service';
+import { RoleService } from 'app/services/role.service';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminLayoutComponent } from './admin-layout.component';
+import { Observable } from 'rxjs';
+
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor{
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+ const xhr=req.clone({
+  headers: req.headers.set('X-Requested-With','XMLHttpRequest')
+ });   
+    return next.handle(xhr);
+  }
+  
+}
 
 @NgModule({
   imports: [
@@ -50,7 +67,14 @@ import { ContactComponent } from 'app/contact/contact/contact.component';
     UpgradeComponent,
     MentionsComponent,
     ContactComponent,
-  ]
+  ],
+  providers: [
+    AppService,
+    UtilisateurService,
+    RoleService,
+    {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}
+  ],
+  bootstrap: [AdminLayoutComponent]
 })
 
 export class AdminLayoutModule {}
