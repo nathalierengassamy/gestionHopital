@@ -9,13 +9,7 @@
                                 <span class="nav-tabs-title">Je suis un médecin:</span>
                                 <ul class="nav nav-tabs" data-tabs="tabs">
                                     <li class="nav-item">
-                                        <a mat-button class="nav-link active" href="#agenda" data-toggle="tab">
-                                            Agenda
-                                            <div class="ripple-container"></div>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a mat-button class="nav-link" href="#rdv" data-toggle="tab">
+                                        <a mat-button class="nav-link active" href="#rdv" data-toggle="tab">
                                             Plannifier RDV
                                             <div class="ripple-container"></div>
                                         </a>
@@ -23,12 +17,6 @@
                                     <li class="nav-item">
                                         <a mat-button class="nav-link" href="#dossiers" data-toggle="tab">
                                             Les Dossiers
-                                            <div class="ripple-container"></div>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a mat-button class="nav-link" href="#interventions" data-toggle="tab">
-                                            Interventions
                                             <div class="ripple-container"></div>
                                         </a>
                                     </li>
@@ -44,36 +32,81 @@
                                             <div class="ripple-container"></div>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#statitiques" data-toggle="tab">
+                                            Statistiques
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="Agenda">
-                                <table class="table">
-                                    <tbody>                                        
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    <h1>Consulter Agenda</h1>
-                                                </div>
-                                            </td>
-                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="tab-pane" id="rdv">
+                            <div class="tab-pane active" id="rdv">
                                 <table class="table">
                                     <tbody>                                        
                                         <tr>
                                             <td>
                                                 <div><p>Plannifier nouveau RDV</p></div>
+                                                <form (ngSubmit)="saveRDV()">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Type RDV</td>
+                                                            <td><input type="text" [(ngModel)]="rdv.typeRDV" name="typeRDV"></td>
+                                                        </tr> 
+                                                        <tr>
+                                                            <td>Heure RDV</td>
+                                                            <td><input type="text" [(ngModel)]="rdv.heureRDV" name="heureRDV"></td>
+                                                        </tr> 
+                                                        <tr>
+                                                            <td>Date RDV</td>
+                                                            <td><input type="date" [(ngModel)]="rdv.dateRDV" name="dateRDV"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Diagnostic</td>
+                                                            <td><input type="text" [(ngModel)]="rdv.diagnostic" name="diagnostic"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Patient</td>
+                                                            <select multiple name="user" [(ngModel)]="rdv.user">
+                                                                <option *ngFor="let u of utilisateurs" [ngValue]="u">
+                                                                  {{utilisateur.nomUtilisateur}} 
+                                                                </option>
+                                                            </select>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2"><button>Créer</button></td>
+                                                        </tr>  
+                                                    </table>
+                                                </form>
+                                                <!--</div>-->
+                                            <div>
+                                                <table>
+                                                    <tr>
+                                                        <th>Type RDV</th>
+                                                        <th>Heure RDV</th>
+                                                        <th>Date RDV</th>
+                                                        <th>Diagnostic</th>
+                                                        <th>Patient</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    <tr *ngFor="let r of rdv">
+                                                            <td>{{r.typerdv}}</td>
+                                                            <td>{{r.heurerdv}}</td>
+                                                            <td>{{r.daterdv}}</td>
+                                                            <td>{{r.diagnostic}}</td>
+                                                            <td>{{r.user}}</td>
+                                                            <td><button (click)="deleterdv(r.idrdv)">Delete</button></td>
+                                                    </tr>
+                                                </table>
+                                                </div>
                                             </td>
-                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
                             <div class="tab-pane" id="dossiers">
                                 <table class="table">
                                     <tbody>                                        
@@ -144,17 +177,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="tab-pane" id="interventions">
-                                <table class="table">
-                                    <tbody>                                        
-                                        <tr>
-                                            <td>
-                                                <div><p>Definir une nouvelle interventions</p></div>
-                                            </td>
-                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                             <div class="tab-pane" id="ordonnances">
                                 <table class="table">
                                     <tbody>                                        
@@ -162,7 +184,7 @@
                                             <td>
                                                <div><p>Consulter / rédiger Ordonnances</p>
                                                 </div>
-                                                <!-- <form (ngSubmit)="saveOrdonnance()">
+                                                <form (ngSubmit)="saveOrdonnance()">
                                                     <table>
                                                         <tr>
                                                             <td>consigne</td>
@@ -178,7 +200,7 @@
                                                         </tr> 
                                                         <tr>
                                                             <td>Dossier</td>
-                                                            <select  name="dossier" [(ngModel)]="ordonnance.dossier">
+                                                            <select multiple name="dossier" [(ngModel)]="ordonnance.dossier">
                                                                 <option *ngFor="let d of dossier" [ngValue]="d">
                                                                   {{d.numChambre}} 
                                                                 </option>
@@ -197,7 +219,7 @@
                                                         </tr>  
                                                     </table>
                                                 </form>
-                                            </div>-->
+                                            <!--</div>-->
                                             <div>
                                                 <table>
                                                     <tr>
@@ -216,7 +238,7 @@
                                                     </tr>
                                                 </table>
                                                 </div>
-                                        </td>
+                                       </td>
                                      </tr>
                                 </tbody>
                             </table>
@@ -227,10 +249,44 @@
                                         <tr>
                                             <td>
                                                 <div><p>Messages des patients</p></div>
-                                            </td>
-                                         </tr>
-                                    </tbody>
-                                </table>
+                                                <form (ngSubmit)="saveMessage()">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Libelle</td>
+                                                            <td><input type="text" [(ngModel)]="message.libelle" name="libelle"></td>
+                                                        </tr>    
+                                                        <tr>
+                                                            <td>Patient</td>
+                                                            <select multiple name="user" [(ngModel)]="message.user">
+                                                                <option *ngFor="let u of utilisateurs" [ngValue]="u">
+                                                                  {{utilisateur.nomUtilisateur}} 
+                                                                </option>
+                                                              </select>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2"><button>Ajouter</button></td>
+                                                        </tr>  
+                                                    </table>
+                                                </form>
+                                            <!--</div>-->
+                                            <div>
+                                                <table>
+                                                    <tr>
+                                                        <th>Libelle</th>
+                                                        <th>Patient</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    <tr *ngFor="let m of message">
+                                                            <td>{{m.message}}</td>
+                                                            <td>{{m.user}}</td>
+                                                            <td><button (click)="deleteMessage(m.idMessage)">Delete</button></td>
+                                                    </tr>
+                                                </table>
+                                                </div>
+                                        <!--</td>
+                                     </tr>
+                                </tbody>
+                            </table>
                             </div>
                         </div>
                     </div>
@@ -238,4 +294,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->

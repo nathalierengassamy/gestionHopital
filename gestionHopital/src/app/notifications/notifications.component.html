@@ -1,123 +1,498 @@
 <div class="main-content">
-  <div class="container-fluid">
-      <div class="card">
-          <div class="card-header card-header-danger">
-              <h3 class="card-title">Notifications</h3>
-              <p class="card-category">Handcrafted by our friend
-                  <a target="_blank" href="https://github.com/mouse0270">Robert McIntosh</a>. Please checkout the
-                  <a href="http://bootstrap-notify.remabledesigns.com/" target="_blank">full documentation.</a>
-              </p>
-          </div>
-          <div class="card-body">
-              <div class="row">
-                  <div class="col-md-6">
-                      <h4 class="card-title">Notifications Style</h4>
-                      <div class="alert alert-info">
-                          <span>This is a plain notification</span>
-                      </div>
-                      <div class="alert alert-info">
-                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <i class="material-icons">close</i>
-                          </button>
-                          <span>This is a notification with close button.</span>
-                      </div>
-                      <div class="alert alert-info alert-with-icon" data-notify="container">
-                          <i class="material-icons" data-notify="icon">add_alert</i>
-                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <i class="material-icons">close</i>
-                          </button>
-                          <span data-notify="message">This is a notification with close button and icon.</span>
-                      </div>
-                      <div class="alert alert-info alert-with-icon" data-notify="container">
-                          <i class="material-icons" data-notify="icon">add_alert</i>
-                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <i class="material-icons">close</i>
-                          </button>
-                          <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <h4 class="card-title">Notification states</h4>
-                      <div class="alert alert-info">
-                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <i class="material-icons">close</i>
-                          </button>
-                          <span>
-                              <b> Info - </b> This is a regular notification made with ".alert-info"</span>
-                      </div>
-                      <div class="alert alert-success">
-                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <i class="material-icons">close</i>
-                          </button>
-                          <span>
-                              <b> Success - </b> This is a regular notification made with ".alert-success"</span>
-                      </div>
-                      <div class="alert alert-warning">
-                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <i class="material-icons">close</i>
-                          </button>
-                          <span>
-                              <b> Warning - </b> This is a regular notification made with ".alert-warning"</span>
-                      </div>
-                      <div class="alert alert-danger">
-                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <i class="material-icons">close</i>
-                          </button>
-                          <span>
-                              <b> Danger - </b> This is a regular notification made with ".alert-danger"</span>
-                      </div>
-                      <div class="alert alert-primary">
-                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <i class="material-icons">close</i>
-                          </button>
-                          <span>
-                              <b> Primary - </b> This is a regular notification made with ".alert-primary"</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-12">
-              <div class="places-buttons">
-                  <div class="row">
-                      <div class="col-md-6 ml-auto mr-auto text-center">
-                          <h4 class="card-title">
-                              Notifications Places
-                              <p class="category">Click to view notifications</p>
-                          </h4>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-lg-8 col-md-10 ml-auto mr-auto">
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('top','left')">Top Left</button>
-                              </div>
-                              <div class="col-md-4">
-                                  <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('top','center')">Top Center</button>
-                              </div>
-                              <div class="col-md-4">
-                                  <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('top','right')">Top Right</button>
-                              </div>
+    <h1>Les Statistiques de l'Hôpital INTI</h1>
+    <br>
+    <div class="container-fluid">
+      <div class="row">
+              <div class="card">
+                  <div class="card-header card-header-tabs card-header-info">
+                      <div class="nav-tabs-navigation">
+                          <div class="nav-tabs-wrapper">
+                              <span class="nav-tabs-title">La recherche au sein de l'hopital : </span>
+                              <ul class="nav nav-tabs" data-tabs="tabs">
+                                  <li class="nav-item">
+                                      <a mat-button class="nav-link active" href="#essaiClinique" data-toggle="tab">
+                                          <i class="material-icons">search</i> Les essais clinques en cours dans notre hôpital
+                                          <div class="ripple-container"></div>
+                                      </a>
+                                  </li>
+                                  <!--<li class="nav-item">
+                                      <a mat-button class="nav-link" href="#nbPatientDansUnEssai" data-toggle="tab">
+                                          <i class="material-icons">group_work</i> Nombre de patients dans un essai clinique dans notre hôpital
+                                          <div class="ripple-container"></div>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                                          <i class="material-icons">book</i> Publication scientifiques des médecins de notre hôpital
+                                          <div class="ripple-container"></div>
+                                      </a>
+                                  </li>-->
+                              </ul>
                           </div>
                       </div>
                   </div>
-                  <div class="row">
-                      <div class="col-lg-8 col-md-10 ml-auto mr-auto">
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('bottom','left')">Bottom Left</button>
-                              </div>
-                              <div class="col-md-4">
-                                  <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('bottom','center')">Bottom Center</button>
-                              </div>
-                              <div class="col-md-4">
-                                  <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('bottom','right')">Bottom Right</button>
-                              </div>
+                  <div class="card-body">
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="essaiClinique">
+                              <table class="table">
+                                  <tbody>
+                                      <tr>
+                                          <td>
+                                              <!-- <div class="form-check">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="checkbox" value="" checked>
+                                                      <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                                                  </label>
+                                              </div> -->
+                                          </td>
+                                          <td>ImmuneCare: gestion des toxicités liées aux immunothérapies
+                                                <br>
+                                                Les trois objectifs du dispositif ImmuCare :
+                                                    <ul>
+                                                        <li>Augmenter les connaissances sur les toxicités induites par l'immunothérapie pour pouvoir individualiser les traitements et 
+                                                            améliorer la gestion des effets secondaires s'ils surviennent.</li>
+                                                        <li>Structurer les programmes de recherche permettant d’étudier les mécanismes de survenue d’effets secondaires liés aux 
+                                                            immunothérapies et ainsi de les anticiper.</li>
+                                                        <li>Mettre à disposition des patients et de leurs médecins traitants des outils pour repérer et traiter précocement les 
+                                                            toxicités induites par les traitements, qui peuvent impacter leur qualité de vie.</li>
+                                                    </ul>
+                                                    Pour tous renseignements, contactez le Pr.Karev. 
+                                                    <br>Contact : doc.karev@gmail.com
+                                                    <br>
+                                          </td>
+                                          <!-- <td class="td-actions text-right">
+                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td> -->
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <!-- <div class="form-check">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="checkbox" value="">
+                                                      <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                                                  </label>
+                                              </div> -->
+                                          </td>
+                                          <td>OFSEP: Observatoire Français de la Sclérose en Plaques
+                                            <br>
+                                            La sclérose en plaques (SEP) est une maladie chronique du système nerveux central qui se déclare principalement chez de jeunes adultes.
+                                            <br>
+                                            Le groupe clinique a défini un ensemble de données cliniques minimales que tous les neurologues participants au projet OFSEP 
+                                            L’objectif de l’OFSEP est d’être un grand outil épidémiologique sur la SEP à destination de la communauté scientifique 
+                                            française et internationale. Cet outil doit permettre d’aider à répondre à de nombreuses questions sur les causes et
+                                             mécanismes de la SEP, les facteurs pronostiques de l’évolution de la maladie, l’efficacité et la sécurité des médicaments, 
+                                             l’impact de la maladie sur les patients et la société, etc.
+                                                <br>
+                                                <br>
+                                                Pour tous renseignements, contactez le Pr.Sheperd. 
+                                                <br>Contact : doc.sheperd@gmail.com
+                                                <br>
+                                            </td>
+                                          <!-- <td class="td-actions text-right">
+                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td> -->
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <!-- <div class="form-check">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="checkbox" value="">
+                                                      <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                                                  </label>
+                                              </div> -->
+                                          </td>
+                                          <td>Covid19:Le comité de pilotage dédié à la Recherche Covid 19, composé d’experts issus des principales disciplines médicales 
+                                            impliquées dans la lutte contre la maladie, mais aussi de structures d’appui (Pôle Santé Publique, Centre d’Investigation 
+                                            Clinique) et de représentants de la direction de la recherche en santé -évalue les projets :
+                                                <ul>
+                                                    <li>Des recherches sur données et des cohortes observationnelles. Des suivis très ciblés dans des populations exposées permettront d’apporter des 
+                                                        éléments de compréhension sur les facteurs de risques à appréhender, et de mettre en place des prises en charge adaptées.</li>
+                                                    <li>Des essais translationnels. Entre recherche fondamentale et recherche clinique, ces études permettent de caractériser les mécanismes biologiques 
+                                                        et immunitaires chez les malades, à différents stades de gravité, et ouvriront la  voie à des traitements ciblés, pour contrôler la maladie et 
+                                                        son évolutivité en termes de durée et gravité.</li>
+                                                    <li>Des projets d’intervention thérapeutique. Ces essais visent à contrôler la maladie et éviter sa progression vers des stades de sévérité nécessitant 
+                                                        une assistance respiratoire, voir impacter la mortalité associée.</li>
+                                                </ul>
+                                                Pour tous renseignements, contactez le Pr.Grey. 
+                                                <br>Contact : doc.grey@gmail.com
+                                          </td>
+                                          <!-- <td class="td-actions text-right">
+                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td> -->
+                                      </tr>
+                                      <!-- <tr>
+                                          <td>
+                                              <div class="form-check">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="checkbox" value="" checked>
+                                                      <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                                                  </label>
+                                              </div>
+                                          </td>
+                                          <td>Create 4 Invisible User Experiences you Never Knew About</td>
+                                          <td class="td-actions text-right">
+                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td>
+                                      </tr> -->
+                                  </tbody>
+                              </table>
                           </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+                          <!--<div class="tab-pane" id="nbPatientDansUnEssai">
+                            <table class="table">
+                               <tbody>
+                                   <tr>
+                                       <td>
+                                           <div class="form-check">
+                                               <label class="form-check-label">
+                                                   <input class="form-check-input" type="checkbox" value="" checked>
+                                                   <span class="form-check-sign">
+                                                       <span class="check"></span>
+                                                   </span>
+                                               </label>
+                                           </div> 
+                                       </td>
+                                       <td>-->
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="card card-stats">
+                                                    <div class="card-header card-header-warning card-header-icon">
+                                                        <div class="card-icon">
+                                                            <i class="material-icons">supervised_user_circle</i>
+                                                        </div>
+                                                        <p class="card-category">Nombre de patient de l'hopital enagé dans un essai clinique</p>
+                                                        <h3 class="card-title">614
+                                                        </h3>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="stats">
+                                                            <i class="material-icons">fingerprint</i>
+                                                            <a href="javascript:void(0)">13 Essais cliniques en cours</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       <!--</td>
+                                       <td class="td-actions text-right">
+                                           <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">edit</i>
+                                           </button>
+                                           <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">close</i>
+                                           </button>
+                                       </td> 
+                                   </tr>-->
+                                   <tr>
+                                       <td>
+                                           <!-- <div class="form-check">
+                                               <label class="form-check-label">
+                                                   <input class="form-check-input" type="checkbox" value="">
+                                                   <span class="form-check-sign">
+                                                       <span class="check"></span>
+                                                   </span>
+                                               </label>
+                                           </div> -->
+                                       </td>
+                                       <td></td>
+                                       <!-- <td class="td-actions text-right">
+                                           <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">edit</i>
+                                           </button>
+                                           <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">close</i>
+                                           </button>
+                                       </td> -->
+                                   </tr>
+                                   <tr>
+                                       <td>
+                                           <!-- <div class="form-check">
+                                               <label class="form-check-label">
+                                                   <input class="form-check-input" type="checkbox" value="">
+                                                   <span class="form-check-sign">
+                                                       <span class="check"></span>
+                                                   </span>
+                                               </label>
+                                           </div> -->
+                                       </td>
+                                       <td>
+                                       </td>
+                                       <!-- <td class="td-actions text-right">
+                                           <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">edit</i>
+                                           </button>
+                                           <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">close</i>
+                                           </button>
+                                       </td> -->
+                                   </tr>
+                                   <!-- <tr>
+                                       <td>
+                                           <div class="form-check">
+                                               <label class="form-check-label">
+                                                   <input class="form-check-input" type="checkbox" value="" checked>
+                                                   <span class="form-check-sign">
+                                                       <span class="check"></span>
+                                                   </span>
+                                               </label>
+                                           </div>
+                                       </td>
+                                       <td>Create 4 Invisible User Experiences you Never Knew About</td>
+                                       <td class="td-actions text-right">
+                                           <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">edit</i>
+                                           </button>
+                                           <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">close</i>
+                                           </button>
+                                       </td>
+                                   </tr> 
+                               </tbody>
+                             </table>
+                         </div>-->
+                         <!--<div class="tab-pane" id="settings">
+                             <table class="table">
+                               <tbody>
+                                   <tr>
+                                       <td>
+                                           <div class="form-check">
+                                               <label class="form-check-label">
+                                                   <input class="form-check-input" type="checkbox" value="" checked>
+                                                   <span class="form-check-sign">
+                                                       <span class="check"></span>
+                                                   </span>
+                                               </label>
+                                           </div> 
+                                       </td>-->
+                                       <td>
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+                                            <div class="card card-stats">
+                                                <div class="card-header card-header-success card-header-icon">
+                                                    <div class="card-icon">
+                                                        <i class="material-icons">book</i>
+                                                    </div>
+                                                    <p class="card-category">Publications scientifiques</p>
+                                                    <h3 class="card-title">4</h3>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <i class="material-icons">date_range</i> Ce mois-ci
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       </td>
+                                       <!-- <td class="td-actions text-right">
+                                           <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">edit</i>
+                                           </button>
+                                           <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">close</i>
+                                           </button>
+                                       </td> -->
+                                   <!--</tr>-->
+                                   <tr>
+                                       <td>
+                                           <!-- <div class="form-check">
+                                               <label class="form-check-label">
+                                                   <input class="form-check-input" type="checkbox" value="">
+                                                   <span class="form-check-sign">
+                                                       <span class="check"></span>
+                                                   </span>
+                                               </label>
+                                           </div> -->
+                                       </td>
+                                       <td> <div class="row">
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+                                            <div class="card card-stats">
+                                                <div class="card-header card-header-warning card-header-icon">
+                                                    <div class="card-icon">
+                                                        <i class="material-icons">supervised_user_circle</i>
+                                                    </div>
+                                                    <p class="card-category">Nombre de patient de l'hopital enagé dans un essai clinique</p>
+                                                    <h3 class="card-title">614
+                                                    </h3>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <i class="material-icons">fingerprint</i>
+                                                        <a href="javascript:void(0)">13 Essais cliniques en cours</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <!--</td>
+                                        <td class="td-actions text-right">
+                                           <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">edit</i>
+                                           </button>
+                                           <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">close</i>
+                                           </button>
+                                       </td> 
+                                   </tr>-->
+                                   <tr>
+                                       <td>
+                                           <!-- <div class="form-check">
+                                               <label class="form-check-label">
+                                                   <input class="form-check-input" type="checkbox" value="">
+                                                   <span class="form-check-sign">
+                                                       <span class="check"></span>
+                                                   </span>
+                                               </label>
+                                           </div> -->
+                                       </td>
+                                       <td>
+                                       </td>
+                                       <!-- <td class="td-actions text-right">
+                                           <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">edit</i>
+                                           </button>
+                                           <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">close</i>
+                                           </button>
+                                       </td> -->
+                                   </tr>
+                                   <!-- <tr>
+                                       <td>
+                                           <div class="form-check">
+                                               <label class="form-check-label">
+                                                   <input class="form-check-input" type="checkbox" value="" checked>
+                                                   <span class="form-check-sign">
+                                                       <span class="check"></span>
+                                                   </span>
+                                               </label>
+                                           </div>
+                                       </td>
+                                       <td>Create 4 Invisible User Experiences you Never Knew About</td>
+                                       <td class="td-actions text-right">
+                                           <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">edit</i>
+                                           </button>
+                                           <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                               <i class="material-icons">close</i>
+                                           </button>
+                                       </td>
+                                   </tr> -->
+                               <!--</tbody>
+                             </table>
+                         </div>
+                     </div>
+                </div>
+             </div>
+         </div>
+     </div>
+     <br>
+     <br>-->
+                           <!-- <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-info card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">check</i>
+                                        </div>
+                                        <p class="card-category">Classement Hôpital</p>
+                                        <h3 class="card-title">112/699</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">satellite</i> Classement Europe
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-info card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">work_outline</i>
+                                        </div>
+                                        <p class="card-category">Environnement de travail agréable</p>
+                                        <h3 class="card-title">76%</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">work</i> Selon les derniers avis du personnel soigant
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                        <div class="row"> 
+                            <div class="col-md-4">
+                                <div class="card card-chart">
+                                    <div class="card-header card-header-info">
+                                        <div class="ct-chart" id="dailySalesChart"></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Nombre d'hospitalisation au cours du derniers mois</h4>
+                                        <p class="card-category">
+                                            <span class="text-danger"><i class="fa fa-long-arrow-up"></i> 35% </span> d'hospitalisation supplémentaires</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">access_time</i> mis à jour à 00h00
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-chart">
+                                    <div class="card-header card-header-warning">
+                                        <div class="ct-chart" id="websiteViewsChart"></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Score de satisfaction patient</h4>
+                                        <p class="card-category">Année 2021</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">access_time</i> mis à jour janvier 2021
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-chart">
+                                    <div class="card-header card-header-danger">
+                                        <div class="ct-chart" id="completedTasksChart"></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Plainte recencée</h4>
+                                        <p class="card-category">Tous services confondus</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">access_time</i> mis à jour hier
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div> -->
+                
