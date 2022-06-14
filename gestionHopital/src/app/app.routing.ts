@@ -20,8 +20,7 @@ const routes: Routes =[
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
     }]
   },  {
-    path: 'mentions', component : MentionsComponent
-  },  {
+
     path: 'contact', component : ContactComponent
   }
 ];

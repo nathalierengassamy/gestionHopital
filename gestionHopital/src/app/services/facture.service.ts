@@ -10,12 +10,15 @@ export class FactureService {
   constructor(private httpClient:HttpClient) { }
   public findAllFacture() : Observable<any>{
     return this.httpClient.get(this.baseURL);
-}
-public deleteFacture(id:number):Observable<any>{
-  return this.httpClient.delete(this.baseURL+"/"+id);
-}
+  }
+  public findByDossier() : Observable<any>{
+    return this.httpClient.get(this.baseURL);
+  }
+  public deleteFacture(id:number):Observable<any>{
+    return this.httpClient.delete(this.baseURL+"/"+id);
+  }
 
-public saveFacture(facture:any):Observable<any>{
-  return this.httpClient.post(this.baseURL,facture);
-}
+  public saveFacture(facture:any):Observable<any>{
+   return this.httpClient.post(this.baseURL,facture);
+  }
 }
