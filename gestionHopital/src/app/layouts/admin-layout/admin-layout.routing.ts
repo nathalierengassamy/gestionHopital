@@ -6,13 +6,14 @@ import { PatientComponent } from '../../user-profile/patient/patient.component';
 import { MedecinComponent } from '../../user-profile/medecin/medecin.component';
 import { AdministrateurComponent } from '../../user-profile/administrateur/administrateur.component';
 import { TableListComponent } from '../../table-list/table-list.component';
-import { TypographyComponent } from '../../typography/typography.component';
+import { TypographyComponent } from '../../typography/infospratiques/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { MentionsComponent } from 'app/mentions/mentions/mentions.component';
 import { ContactComponent } from 'app/contact/contact/contact.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     // {

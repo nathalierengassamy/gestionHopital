@@ -1,4 +1,241 @@
 <div class="main-content">
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-tabs card-header-info">
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <span class="nav-tabs-title">Je suis un médecin:</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link active" href="#agenda" data-toggle="tab">
+                                            Agenda
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#rdv" data-toggle="tab">
+                                            Plannifier RDV
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#dossiers" data-toggle="tab">
+                                            Les Dossiers
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#interventions" data-toggle="tab">
+                                            Interventions
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#ordonnances" data-toggle="tab">
+                                            Ordonnances
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                            Messages patients
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="Agenda">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <h1>Consulter Agenda</h1>
+                                                </div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="rdv">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div><p>Plannifier nouveau RDV</p></div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="dossiers">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <h1>Voir tous mes dossiers</h1>
+                                                    <form (ngSubmit)="saveDossier()">
+                                                        <table>
+                                                            <tr>
+                                                                <td>Facture</td>
+                                                                <select multiple name="factures" [(ngModel)]="dossier.factures">
+                                                                    <option *ngFor="let f of factures" [ngValue]="f">
+                                                                      {{f.montant}} 
+                                                                    </option>
+                                                                  </select>
+                                                            </tr>    
+                                                            <tr>
+                                                                <td>Ordonnance</td>
+                                                                <select multiple name="ordonnances" [(ngModel)]="dossier.ordonnances">
+                                                                    <option *ngFor="let o of ordonnances" [ngValue]="o">
+                                                                      {{o.consigne}} 
+                                                                    </option>
+                                                                  </select>
+                                                            </tr> 
+                                                            <tr>
+                                                                <td>Chambre</td>
+                                                                <select multiple name="chambres" [(ngModel)]="dossier.chambres">
+                                                                    <option *ngFor="let c of chambres" [ngValue]="c">
+                                                                      {{c.numChambre}} 
+                                                                    </option>
+                                                                  </select>
+                                                            </tr>  
+                                                            <tr>
+                                                                <td>Patient</td>
+                                                                <select multiple name="user" [(ngModel)]="dossier.user">
+                                                                    <option *ngFor="let u of utilisateurs" [ngValue]="u">
+                                                                      {{utilisateur.nomUtilisateur}} 
+                                                                    </option>
+                                                                  </select>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"><button>Ajouter</button></td>
+                                                            </tr>  
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <th>Facture</th>
+                                                            <th>Ordonnance</th>
+                                                            <th>Chambre</th>
+                                                            <th>Patient</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        <tr *ngFor="let d of dossiers">
+                                                                <td>{{d.factures}}</td>
+                                                                <td>{{d.ordonnances}}</td>
+                                                                <td>{{d.chambre}}</td>
+                                                                <td>{{d.user}}</td>
+                                                                <td><button (click)="deleteDossier(d.idDossier)">Delete</button></td>
+                                                        </tr>
+                                                    </table>
+                                                    </div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="interventions">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div><p>Definir une nouvelle interventions</p></div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="ordonnances">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                               <div><p>Consulter / rédiger Ordonnances</p>
+                                                </div>
+                                                <!-- <form (ngSubmit)="saveOrdonnance()">
+                                                    <table>
+                                                        <tr>
+                                                            <td>consigne</td>
+                                                            <td><input type="text" [(ngModel)]="ordonnance.consigne" name="consigne"></td>
+                                                        </tr>    
+                                                        <tr>
+                                                            <td>Medicament</td>
+                                                            <select multiple name="medicament" [(ngModel)]="ordonnance.medicament">
+                                                                <option *ngFor="let m of medicament" [ngValue]="m">
+                                                                  {{m.libelle}} 
+                                                                </option>
+                                                              </select>
+                                                        </tr> 
+                                                        <tr>
+                                                            <td>Dossier</td>
+                                                            <select  name="dossier" [(ngModel)]="ordonnance.dossier">
+                                                                <option *ngFor="let d of dossier" [ngValue]="d">
+                                                                  {{d.numChambre}} 
+                                                                </option>
+                                                              </select>
+                                                        </tr>  
+                                                        <tr>
+                                                            <td>Patient</td>
+                                                            <select multiple name="user" [(ngModel)]="dossier.user">
+                                                                <option *ngFor="let u of utilisateurs" [ngValue]="u">
+                                                                  {{utilisateur.nomUtilisateur}} 
+                                                                </option>
+                                                              </select>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2"><button>Ajouter</button></td>
+                                                        </tr>  
+                                                    </table>
+                                                </form>
+                                            </div>-->
+                                            <div>
+                                                <table>
+                                                    <tr>
+                                                        <th>Consigne</th>
+                                                        <th>Medicament</th>
+                                                        <th>Dossier</th>
+                                                        <th>Patient</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    <tr *ngFor="let o of ordonnance">
+                                                            <td>{{o.consigne}}</td>
+                                                            <td>{{o.medicament}}</td>
+                                                            <td>{{o.dossier}}</td>
+                                                            <td>{{o.user}}</td>
+                                                            <td><button (click)="deleteordonnance(d.idOrdonnance)">Delete</button></td>
+                                                    </tr>
+                                                </table>
+                                                </div>
+                                        </td>
+                                     </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                            <div class="tab-pane" id="messages">
+                                <table class="table">
+                                    <tbody>                                        
+                                        <tr>
+                                            <td>
+                                                <div><p>Messages des patients</p></div>
+                                            </td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
