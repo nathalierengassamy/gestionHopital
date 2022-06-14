@@ -17,7 +17,6 @@ import { ChambreComponent } from './chambre/chambre/chambre.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { RoleComponent } from './role/role.component';
-import { ContactComponent } from './contact/contact/contact.component';
 
 @NgModule({
   imports: [
@@ -43,7 +42,6 @@ import { ContactComponent } from './contact/contact/contact.component';
     ChambreComponent,
     UtilisateurComponent,
     RoleComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
