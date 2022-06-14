@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
 
-  constructor() { }
+export class DashboardComponent implements OnInit {
+  utilisateurs!: any[];
+
+  constructor(private router: Router) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -42,6 +46,7 @@ export class DashboardComponent implements OnInit {
 
       seq = 0;
   };
+  
   startAnimationForBarChart(chart){
       let seq2: any, delays2: any, durations2: any;
 
