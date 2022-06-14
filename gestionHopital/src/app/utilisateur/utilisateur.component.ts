@@ -12,19 +12,19 @@ export class UtilisateurComponent implements OnInit {
   utilisateurs!: any[];
   utilisateur:Utilisateur=new Utilisateur();
 
-  constructor(private ordonnanceService:UtilisateurService) { }
+  constructor(private utilisateurService:UtilisateurService) { }
 
   ngOnInit(): void {
     this.findAllUtilisateur();
   }
   findAllUtilisateur(){
-    this.ordonnanceService.findAllUtilisateur().subscribe(data => {this.utilisateurs = data;});
+    this.utilisateurService.findAllUtilisateur().subscribe(data => {this.utilisateurs = data;});
   }
   deleteOrdonnance(id:number){
-    this.ordonnanceService.deleteUtilisateur(id).subscribe(()=>{this.findAllUtilisateur()});
+    this.utilisateurService.deleteUtilisateur(id).subscribe(()=>{this.findAllUtilisateur()});
   }
   saveOrdonnance(){
-    this.ordonnanceService.saveUtilisateur(this.utilisateur).subscribe(()=>{
+    this.utilisateurService.saveUtilisateur(this.utilisateur).subscribe(()=>{
       this.findAllUtilisateur();
       this.utilisateur = new Utilisateur();
     })

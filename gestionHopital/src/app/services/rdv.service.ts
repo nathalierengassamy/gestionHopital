@@ -15,7 +15,7 @@ public deleteRDV(id:number):Observable<any>{
   return this.httpClient.delete(this.baseURL+"/"+id);
 }
 
-public saveRDV(message:any):Observable<any>{
-  return this.httpClient.post(this.baseURL,message);
+public saveRDV(rdv:any):Observable<any>{
+  return this.httpClient.post(this.baseURL,rdv);
 }
 }
