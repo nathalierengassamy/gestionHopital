@@ -34,6 +34,7 @@ export class XhrInterceptor implements HttpInterceptor{
   
 }
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -58,7 +59,6 @@ export class XhrInterceptor implements HttpInterceptor{
     ChambreComponent,
     UtilisateurComponent,
     RoleComponent,
-
   ],
   providers: [
     AppService,
