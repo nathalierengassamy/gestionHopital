@@ -13,6 +13,8 @@ import { UtilisateurService } from 'app/services/utilisateur.service';
 import { RoleService } from 'app/services/role.service';
 import { Ordonnance } from 'app/model/ordonnance';
 import { OrdonnanceService } from 'app/services/ordonnance.service';
+import { AppService } from 'app/app.service';
+import { AdminLayoutService } from 'app/layouts/admin-layout/admin-layout.service';
 
 @Component({
   selector: 'app-administrateur',
@@ -36,7 +38,7 @@ export class AdministrateurComponent implements OnInit {
   ordonnance:Ordonnance=new Ordonnance();
 
   
-  constructor(private chambreService:ChambreService, private utilisateurService:UtilisateurService, private medicamentService:MedicamentService, private factureService:FactureService,
+  constructor(private adminLayoutService:AdminLayoutService,private chambreService:ChambreService, private utilisateurService:UtilisateurService, private medicamentService:MedicamentService, private factureService:FactureService,
     private dossierService:DossierService, private roleService:RoleService, private ordonnanceService:OrdonnanceService) { }
 
   ngOnInit(): void {
@@ -125,6 +127,9 @@ export class AdministrateurComponent implements OnInit {
       this.utilisateur = new Utilisateur();
     })
   }
+  /*countUtilisateur(){
+    this.findAllUtilisateur.length;
+  }*/
 
   findAllChambre(){
     this.chambreService.findAllChambre().subscribe(data => {this.chambres = data;});
@@ -139,4 +144,15 @@ export class AdministrateurComponent implements OnInit {
     })
   }
 
+  authenticated(){
+    return this.adminLayoutService.authenticated;
+  }
+  authorities() {
+    console.log("isAdmin" + this.adminLayoutService.isAdmin);
+    if(this.adminLayoutService.isAdmin==true) {
+      return false;
+    }else{
+      return false;
+    }
+  }
 }

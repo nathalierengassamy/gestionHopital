@@ -1,3 +1,4 @@
+<div [hidden]="!authenticated()">
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
@@ -487,4 +488,8 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+<div [hidden]="authenticated()">
+  <p>Connectez-vous pour afficher l'interface des utilisateurs</p>
 </div>
