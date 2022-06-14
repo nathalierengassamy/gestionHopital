@@ -15,7 +15,7 @@ public deleteMedicament(id:number):Observable<any>{
   return this.httpClient.delete(this.baseURL+"/"+id);
 }
 
-public saveMedicament(message:any):Observable<any>{
-  return this.httpClient.post(this.baseURL,message);
+public saveMedicament(medicament:any):Observable<any>{
+  return this.httpClient.post(this.baseURL,medicament);
 }
 }

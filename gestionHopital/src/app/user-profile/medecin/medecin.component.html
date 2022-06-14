@@ -85,24 +85,24 @@
                                                         <table>
                                                             <tr>
                                                                 <td>Facture</td>
-                                                                <select multiple name="facture" [(ngModel)]="dossier.facture">
-                                                                    <option *ngFor="let f of facture" [ngValue]="f">
+                                                                <select multiple name="factures" [(ngModel)]="dossier.factures">
+                                                                    <option *ngFor="let f of factures" [ngValue]="f">
                                                                       {{f.montant}} 
                                                                     </option>
                                                                   </select>
                                                             </tr>    
                                                             <tr>
                                                                 <td>Ordonnance</td>
-                                                                <select multiple name="ordonnance" [(ngModel)]="dossier.ordonnance">
-                                                                    <option *ngFor="let o of ordonnance" [ngValue]="o">
+                                                                <select multiple name="ordonnances" [(ngModel)]="dossier.ordonnances">
+                                                                    <option *ngFor="let o of ordonnances" [ngValue]="o">
                                                                       {{o.consigne}} 
                                                                     </option>
                                                                   </select>
                                                             </tr> 
                                                             <tr>
                                                                 <td>Chambre</td>
-                                                                <select multiple name="chambre" [(ngModel)]="dossier.chambre">
-                                                                    <option *ngFor="let c of chambre" [ngValue]="c">
+                                                                <select multiple name="chambres" [(ngModel)]="dossier.chambres">
+                                                                    <option *ngFor="let c of chambres" [ngValue]="c">
                                                                       {{c.numChambre}} 
                                                                     </option>
                                                                   </select>
