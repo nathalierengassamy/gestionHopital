@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 
 export class DashboardComponent implements OnInit {
   utilisateurs!: any[];
+  chambres!: any[];
 
   constructor(private router: Router) { }
   startAnimationForLineChart(chart){
