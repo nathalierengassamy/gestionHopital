@@ -33,10 +33,6 @@ export class XhrInterceptor implements HttpInterceptor{
   }
   
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ad25de396062acbe9ad48258eb27046ed436d27
 
 @NgModule({
   imports: [
