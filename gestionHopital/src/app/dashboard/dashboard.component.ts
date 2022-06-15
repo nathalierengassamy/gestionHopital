@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import { Router } from '@angular/router';
+import { Utilisateur } from 'app/model/utilisateur';
+import { UtilisateurService } from 'app/services/utilisateur.service';
+import { Chambre } from 'app/model/chambre';
+import { ChambreService } from 'app/services/chambre.service';
 
 
 @Component({
@@ -13,7 +17,7 @@ export class DashboardComponent implements OnInit {
   utilisateurs!: any[];
   chambres!: any[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private chambreService:ChambreService, private utilisateurService:UtilisateurService) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -72,12 +76,21 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+    this.findAllChambre();
+    this.findAllUtilisateur();
+  }
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
+      findAllUtilisateur(){
+        this.utilisateurService.findAllUtilisateur().subscribe(data => {this.utilisateurs = data;});
+      }
+      findAllChambre(){
+        this.chambreService.findAllChambre().subscribe(data => {this.chambres = data;});
+    
 
       const dataDailySalesChart: any = {
-          labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+          labels: ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
           series: [
-              [12, 17, 7, 17, 23, 18, 38]
+              [120, 170, 100, 210, 185, 200, 300]
           ]
       };
 
@@ -86,7 +99,7 @@ export class DashboardComponent implements OnInit {
               tension: 0
           }),
           low: 0,
-          high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+          high: 500, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
           chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
       }
 
@@ -98,9 +111,9 @@ export class DashboardComponent implements OnInit {
       /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
 
       const dataCompletedTasksChart: any = {
-          labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
+          labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A'],
           series: [
-              [230, 750, 450, 300, 280, 240, 200, 190]
+              [450, 350, 330, 300, 280, 240, 200, 190]
           ]
       };
 
@@ -109,7 +122,7 @@ export class DashboardComponent implements OnInit {
               tension: 0
           }),
           low: 0,
-          high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+          high: 500, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
           chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
       }
 
@@ -123,9 +136,9 @@ export class DashboardComponent implements OnInit {
       /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
       var datawebsiteViewsChart = {
-        labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+        labels: ['9h', '10h', '11h', '12h', '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h'],
         series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+          [54, 44, 32, 78, 55, 45, 32, 43, 56, 61, 75, 46]
 
         ]
       };
@@ -134,7 +147,7 @@ export class DashboardComponent implements OnInit {
               showGrid: false
           },
           low: 0,
-          high: 1000,
+          high: 100,
           chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
       };
       var responsiveOptions: any[] = [
