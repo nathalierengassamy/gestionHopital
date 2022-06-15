@@ -144,8 +144,11 @@ export class AdministrateurComponent implements OnInit {
   }
 
   authenticated(){
-    return this.appService.authenticated;
+
+    return this.appService.authenticated; // false
+
   }
+  
   authorities() {
     console.log("isAdmin" + this.appService.isAdmin);
     if(this.appService.isAdmin==true) {
