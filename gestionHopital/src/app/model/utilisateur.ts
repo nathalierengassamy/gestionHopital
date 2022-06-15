@@ -9,7 +9,7 @@ export class Utilisateur {
     password!:string;
     dateNaissance!:Date;
     age!:number;
-    adresse!:String;
+    adresseUtilisateur!:string;
     ageUtilisateur!:number;
     telephone!:number;
     roles!:Role[];

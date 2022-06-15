@@ -22,6 +22,7 @@ import { AppService } from './app.service';
 import { UtilisateurService } from './services/utilisateur.service';
 import { RoleService } from './services/role.service';
 import { Observable } from 'rxjs';
+import { LoginComponent } from './login/login.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor{
@@ -59,6 +60,7 @@ export class XhrInterceptor implements HttpInterceptor{
     ChambreComponent,
     UtilisateurComponent,
     RoleComponent,
+   // LoginComponent,
   ],
   providers: [
     AppService,

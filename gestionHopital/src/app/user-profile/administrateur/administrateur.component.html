@@ -45,12 +45,12 @@
                                             <div class="ripple-container"></div>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!--<li class="nav-item">
                                         <a mat-button class="nav-link" href="#statitiques" data-toggle="tab">
                                             Statistiques
                                             <div class="ripple-container"></div>
                                         </a>
-                                    </li>
+                                    </li>-->
                                 </ul>
                             </div>
                         </div>
@@ -84,16 +84,16 @@
                                                             </tr>
                                                             <tr>
                                                                 <td><label>Adresse</label></td>
-                                                                <td><input type="text" [(ngModel)]="utilisateur.adresse" name="adresse"></td>
+                                                                <td><input type="text" [(ngModel)]="utilisateur.adresseUtilisateur" name="adresseUtilisateur"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td><label>Age</label></td>
-                                                                <td><input type="number" [(ngModel)]="utilisateur.age" name="age"></td>
+                                                                <td><input type="number" [(ngModel)]="utilisateur.ageUtilisateur" name="ageUtilisateur"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td><label>Role</label></td>
                                                                 <select multiple name="roles" [(ngModel)]="utilisateur.roles">
-                                                                    <option *ngFor="let r of role" [ngValue]="r">
+                                                                    <option *ngFor="let r of roles" [ngValue]="r">
                                                                       {{r.libelle}} 
                                                                     </option>
                                                                   </select>
@@ -126,8 +126,8 @@
                                                                 <td>{{u.prenomUtilisateur}}</td>
                                                                 <td>{{u.username}}</td>
                                                                 <td>{{u.dateNaissance}}</td>
-                                                                <td>{{u.age}}</td>
-                                                                <td>{{u.adresse}}</td>
+                                                                <td>{{u.adresseUtilisateur}}</td>
+                                                                <td>{{u.ageUtilisateur}}</td>
                                                                 <td>{{u.roles}}</td>
                                                                 <td>{{u.telephone}}</td>
                                                                 <td><button (click)="deleteUtilisateur(u.idUtilisateur)">Delete</button></td>
@@ -166,16 +166,16 @@
                                                             </tr>
                                                             <tr>
                                                                 <td><label>Adresse</label></td>
-                                                                <td><input type="text" [(ngModel)]="utilisateur.adresse" name="adresse"></td>
+                                                                <td><input type="text" [(ngModel)]="utilisateur.adresseUtilisateur" name="adresseUtilisateur"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td><label>Age</label></td>
-                                                                <td><input type="number" [(ngModel)]="utilisateur.age" name="age"></td>
+                                                                <td><input type="number" [(ngModel)]="utilisateur.ageUtilisateur" name="ageUtilisateur"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td><label>Role</label></td>
                                                                 <select multiple name="roles" [(ngModel)]="utilisateur.roles">
-                                                                    <option *ngFor="let r of role" [ngValue]="r">
+                                                                    <option *ngFor="let r of roles" [ngValue]="r">
                                                                       {{r.libelle}} 
                                                                     </option>
                                                                   </select>
@@ -204,16 +204,16 @@
                                                             <th>Action</th>
                                                         </tr>
                                                         <tr *ngFor="let u of utilisateurs">
-                                                                <td>{{u.nomUtilisateur}}</td>
-                                                                <td>{{u.prenomUtilisateur}}</td>
-                                                                <td>{{u.username}}</td>
-                                                                <td>{{u.dateNaissance}}</td>
-                                                                <td>{{u.age}}</td>
-                                                                <td>{{u.adresse}}</td>
-                                                                <td>{{u.roles}}</td>
-                                                                <td>{{u.telephone}}</td>
-                                                                <td><button (click)="deleteUtilisateur(u.idUtilisateur)">Delete</button></td>
-                                                        </tr>
+                                                            <td>{{u.nomUtilisateur}}</td>
+                                                            <td>{{u.prenomUtilisateur}}</td>
+                                                            <td>{{u.username}}</td>
+                                                            <td>{{u.dateNaissance}}</td>
+                                                            <td>{{u.adresseUtilisateur}}</td>
+                                                            <td>{{u.ageUtilisateur}}</td>
+                                                            <td>{{u.roles}}</td>
+                                                            <td>{{u.telephone}}</td>
+                                                            <td><button (click)="deleteUtilisateur(u.idUtilisateur)">Delete</button></td>
+                                                    </tr>
                                                     </table>
                                                 </div>
                                             </td>
@@ -471,7 +471,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="tab-pane" id="statitiques">
+                            <!--<div class="tab-pane" id="statitiques">
                                 <table class="table">
                                     <tbody>                                        
                                         <tr>
@@ -481,7 +481,7 @@
                                          </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
