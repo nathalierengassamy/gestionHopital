@@ -30,6 +30,8 @@ export const ROUTES = [
     //{ path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     { path : '/login', title: "Login" },
     { path: '/notifications', title: 'Statistiques',  icon:'content_paste', class: '' },
+    { path: '/maps', title: 'Message',  icon:'contact_support', class: '' },
+    //{ path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     //{ path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
 ];
 
