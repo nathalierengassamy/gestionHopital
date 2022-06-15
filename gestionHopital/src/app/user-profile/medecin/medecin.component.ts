@@ -15,6 +15,7 @@ import { MessageService } from 'app/services/message.service';
 import { OrdonnanceService } from 'app/services/ordonnance.service';
 import { RDVService } from 'app/services/rdv.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
+import { AppService } from 'app/app.service';
 
 @Component({
   selector: 'app-medecin',
@@ -38,8 +39,9 @@ export class MedecinComponent implements OnInit {
   rdv:RDV=new RDV();
   messages!: any[];
   message:Message=new Message();
+ 
   
-  constructor(private chambreService:ChambreService, private utilisateurService:UtilisateurService, private medicamentService:MedicamentService, private factureService:FactureService,
+  constructor(private appService:AppService,private chambreService:ChambreService, private utilisateurService:UtilisateurService, private medicamentService:MedicamentService, private factureService:FactureService,
     private dossierService:DossierService, private ordonnanceService:OrdonnanceService,private rdvService:RDVService,private messageService:MessageService) { }
 
   ngOnInit(): void {
@@ -155,6 +157,18 @@ export class MedecinComponent implements OnInit {
       this.findAllMessage();
       this.message = new Message();
     })
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  authorities() {
+    console.log("isAdmin" + this.appService.isAdmin);
+    if(this.appService.isAdmin==true) {
+      return false;
+    }else{
+      return false;
+    }
   }
 
 }
