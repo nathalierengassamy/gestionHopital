@@ -27,7 +27,7 @@ export const ROUTES = [
     { path: '/table-list', title: 'Prendre un rendez-vous',  icon:'calendar_month', class: '' },
     { path: '/typography', title: 'Infos pratiques',  icon:'info', class: '' },
     { path: '/icons', title: 'Faire un don',  icon:'favorite', class: '' },
-    //{ path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
+    { path: '/maps', title: 'Message',  icon:'contact_support', class: '' },
     //{ path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     //{ path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
 ];
