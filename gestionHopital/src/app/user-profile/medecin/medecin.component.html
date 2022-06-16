@@ -184,24 +184,24 @@
                                                             <td><input type="text" [(ngModel)]="ordonnance.consigne" name="consigne"></td>
                                                         </tr>    
                                                         <tr>
-                                                            <td>Medicament</td>
+                                                            <td><label>Medicament</label></td>
                                                             <select multiple name="medicament" [(ngModel)]="ordonnance.medicament">
-                                                                <option *ngFor="let m of medicament" [ngValue]="m">
-                                                                  {{m.libelle}} 
+                                                                <option *ngFor="let m of medicaments" [ngValue]="m">
+                                                                  {{m.libelleMedicament}} 
                                                                 </option>
                                                               </select>
-                                                        </tr> 
+                                                        </tr>
                                                         <tr>
-                                                            <td>Dossier</td>
+                                                            <td><label>Dossier</label></td>
                                                             <select multiple name="dossier" [(ngModel)]="ordonnance.dossier">
                                                                 <option *ngFor="let d of dossiers" [ngValue]="d">
-                                                                  {{d.numChambre}} 
+                                                                  {{d.idDossier}} 
                                                                 </option>
                                                               </select>
                                                         </tr>  
                                                         <tr>
                                                             <td><label>Patient</label></td>
-                                                            <select multiple name="user" [(ngModel)]="dossier.user">
+                                                            <select multiple name="user" [(ngModel)]="ordonnance.user">
                                                                 <option *ngFor="let u of utilisateurs" [ngValue]="u">
                                                                   {{u.nomUtilisateur}} {{u.prenomUtilisateur}} 
                                                                 </option>
@@ -241,7 +241,7 @@
                                     <tbody>                                        
                                         <tr>
                                             <td>
-                                                <div><p>Messages des patients</p>
+                                                <td><label>Message du patient</label></td>
                                                 <form (ngSubmit)="saveMessage()">
                                                     <table>
                                                         <tr>
@@ -261,7 +261,7 @@
                                                         </tr>  
                                                     </table>
                                                 </form>
-                                            </div>
+                                            <!--</div>-->
                                             <div>
                                                 <table>
                                                     <tr>
@@ -270,7 +270,7 @@
                                                         <th>Action</th>
                                                     </tr>
                                                     <tr *ngFor="let m of messages">
-                                                            <td>{{m.message}}</td>
+                                                            <td>{{m.libelle}}</td>
                                                             <td>{{m.user}}</td>
                                                             <td><button (click)="deleteMessage(m.idMessage)">Delete</button></td>
                                                     </tr>
