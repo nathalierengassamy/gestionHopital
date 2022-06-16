@@ -60,7 +60,6 @@ export class XhrInterceptor implements HttpInterceptor{
     ChambreComponent,
     UtilisateurComponent,
     RoleComponent,
-   // LoginComponent,
   ],
   providers: [
     AppService,

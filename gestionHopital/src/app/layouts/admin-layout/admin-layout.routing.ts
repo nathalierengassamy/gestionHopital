@@ -13,7 +13,6 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { MentionsComponent } from 'app/mentions/mentions/mentions.component';
 import { ContactComponent } from 'app/contact/contact/contact.component';
-import { LoginComponent } from 'app/login/login.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -72,5 +71,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'mentions',        component: MentionsComponent },
     { path: 'contact',        component: ContactComponent },
-    { path: 'login', component: LoginComponent },
+    { path: 'connexion', component: UserProfileComponent },
 ];
