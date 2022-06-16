@@ -28,7 +28,6 @@ import { RoleService } from 'app/services/role.service';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminLayoutComponent } from './admin-layout.component';
 import { Observable } from 'rxjs';
-import { LoginComponent } from 'app/login/login.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor{
@@ -68,7 +67,6 @@ export class XhrInterceptor implements HttpInterceptor{
     UpgradeComponent,
     MentionsComponent,
     ContactComponent,
-    LoginComponent,
   ],
   providers: [
     AppService,
