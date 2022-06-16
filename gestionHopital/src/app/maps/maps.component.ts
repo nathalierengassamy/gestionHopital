@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Message } from 'app/model/message';
+import { MessageService } from 'app/services/message.service';
 
 declare const google: any;
 
@@ -15,10 +17,24 @@ draggable?: boolean;
   styleUrls: ['./maps.component.css']
 })
 export class MapsComponent implements OnInit {
-
-  constructor(private router: Router) { }
+    messages!: any[];
+    message:Message=new Message();
+  constructor(private router: Router, private messageService:MessageService) { }
 
   ngOnInit() {
+    this.findAllMessage();
+}
+findAllMessage(){
+    this.messageService.findAllMessage().subscribe(data => {this.messages = data;});
+  }
+  deleteMessage(id:number){
+    this.messageService.deleteMessage(id).subscribe(()=>{this.findAllMessage()});
+  }
+  saveMessage(){
+    this.messageService.saveMessage(this.message).subscribe(()=>{
+      this.findAllMessage();
+      this.message = new Message();
+    })
 
     var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
     var mapOptions = {

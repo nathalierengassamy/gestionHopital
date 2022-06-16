@@ -55,11 +55,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th>
-                                        <input type="checkbox"> Une intervention
-                                    </th>
-                                    <th>
-                                        <input type="checkbox"> Une consultation
+                                    <th *ngFor="let r of role">
+                                        <input type="checkbox"> {{r.libelle}}
                                     </th>
                                 </tr>
                             </tbody>
@@ -171,43 +168,21 @@
                                     <th>
                                     Date
                                     </th>
-                                    <th>
-                                        <input type="checkbox"> Lundi
-                                    </th>
-                                    <th>
-                                        <input type="checkbox"> Mardi
-                                    </th>
-                                       <th>
-                                        <input type="checkbox"> Mercredi
+                                    <th *ngFor="let r of rdvs">
+                                        <input type="checkbox"> {{r.dateRDV}}
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let r of rdv">
-                                        <td>
-                                            <input type="checkbox"> {{r.dateRDV}}
-                                        </td>
-                                    </tr>
                                 </tbody>
                                 <thead class="">
                                     <th>
                                     Horaire
                                     </th>
-                                    <th>
-                                        <input type="checkbox"> 12h
-                                    </th>
-                                    <th>
-                                        <input type="checkbox"> 14h
-                                    </th>
-                                       <th>
-                                        <input type="checkbox"> 16h
+                                    <th *ngFor="let r of rdvs">
+                                        <input type="checkbox"> {{r.heureRDV}}
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let r of rdv">
-                                        <td>
-                                            <input type="checkbox"> {{r.heureRDV}
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -224,17 +199,19 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            <form (ngSubmit)="saveRDV()">
                             <table class="table">
                                 <thead class=" text-primary"> 
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <button>Envoyer</button>
+                                            <button>Créer</button>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+                        </form>
                         </div>
                     </div>
                 </div>

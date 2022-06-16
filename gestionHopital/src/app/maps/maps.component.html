@@ -13,11 +13,6 @@
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="tab-pane active" id="liste">
-                                  <div class="container">
-                                    <p>Bonjour est-ce que y a quelqu'un</p>
-                                    <span class="time-right">11:02</span>
-                                  </div>
-                                  
                                   <div class="container darker">
                                     <img src="https://cdna.pcpartpicker.com/static/forever/images/user/2955525.9628877d0a90e8d86f6396e6ecd2ac5d.256c.jpg" alt="Avatar" class="right">
                                     <p>Bienvenue sur le service de messagerie de l'hôpital INTI</p>
@@ -26,10 +21,28 @@
                                     <span class="time-left">11:03</span>
                                   </div>
 
-                                  <div class="container">
-                                    <p><textarea placeholder="Tapez votre message" cols="120" rows="5"></textarea></p>
-                                  <button routerLink="/message">Envoyer</button>
-                                  </div>
+                                  <form (ngSubmit)="saveMessage()">
+                                    <table>
+                                        <tr>
+                                            <td>Tapez votre message</td>
+                                            <td><input type="text" [(ngModel)]="message.libelle" name="libelle"></td>
+                                        </tr> 
+                                        <tr>
+                                            <td colspan="2"><button>Créer</button></td>
+                                        </tr>  
+                                    </table>
+                                </form>
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <th>Message</th>
+                                        </tr>
+                                        <tr *ngFor="let m of messages">
+                                                <td>{{message.libelle}}</td>
+                                                <td><button (click)="deleteRDV(r.idRDV)">Delete</button></td>
+                                        </tr>
+                                    </table>
+                                    </div>
                             </div>
                         </div>
                     </div>
