@@ -22,6 +22,15 @@ import { AppService } from './app.service';
 import { UtilisateurService } from './services/utilisateur.service';
 import { RoleService } from './services/role.service';
 import { Observable } from 'rxjs';
+import { TypeRDVComponent } from './type-rdv/type-rdv.component';
+import { TypeRDVService } from './services/type-rdv.service';
+import { ChambreService } from './services/chambre.service';
+import { DossierService } from './services/dossier.service';
+import { FactureService } from './services/facture.service';
+import { MedicamentService } from './services/medicament.service';
+import { MessageService } from './services/message.service';
+import { OrdonnanceService } from './services/ordonnance.service';
+import { RDVService } from './services/rdv.service';
 //import { LoginComponent } from './login/login.component';
 
 @Injectable()
@@ -60,11 +69,20 @@ export class XhrInterceptor implements HttpInterceptor{
     ChambreComponent,
     UtilisateurComponent,
     RoleComponent,
+    TypeRDVComponent,
   ],
   providers: [
     AppService,
     UtilisateurService,
     RoleService,
+    TypeRDVService,
+    ChambreService,
+    DossierService,
+    FactureService,
+    MedicamentService,
+    MessageService,
+    OrdonnanceService,
+    RDVService,
     {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]

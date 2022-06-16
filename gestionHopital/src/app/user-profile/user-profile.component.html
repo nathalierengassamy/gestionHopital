@@ -9,21 +9,23 @@
                       <p class="card-category">Votre espace de suivi personnel et sécurisé de l'hôpital INTI</p>
                   </div>
                   <div class="card-body">
-                      <form>
+                      <form (submit)="profile()">
                             <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Username">
+                                  <input matInput placeholder="Username" type="text"
+                                  class="form-control" id="username" name="username" [(ngModel)]="credentials.username">
                                 </mat-form-field>
                               </div>
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Password" type="text">
+                                  <input matInput placeholder="Password" type="password"
+                                  class="form-control" id="password" name="password" [(ngModel)]="credentials.password">
                                 </mat-form-field>
                               </div>
                           </div>
                           <button type="button" class="btn btn-link">Mot de passe oublié ?</button>
-                          <button mat-raised-button type="submit" class="btn btn-info pull-right">Se connecter</button>
+                          <button mat-raised-button type="submit" class="btn btn-primary">Se Connecter</button>
                           <button mat-raised-button type="submit" class="btn btn-dark pull-right">Créer un compte</button>
                           <div class="clearfix"></div>
                       </form>

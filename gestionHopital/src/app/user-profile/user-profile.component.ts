@@ -17,7 +17,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit():void {
   }
   profile(){
-    this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/forms/users")});
+    this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/user-profile/administrateur")});
     return false;
   }
 
