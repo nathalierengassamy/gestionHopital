@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'app/app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  credentials = {username:'',password:''};
+  constructor(private appService:AppService,private httpClient:HttpClient,
+    private router:Router) { }
 
-  ngOnInit() {
+  ngOnInit():void {
+  }
+  profile(){
+    this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/forms/users")});
+    return false;
   }
 
 }
