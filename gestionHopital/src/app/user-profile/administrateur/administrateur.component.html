@@ -1,3 +1,4 @@
+<div>
 <div [hidden]="!authenticated()">
 <div class="main-content">
     <div class="container-fluid">
@@ -255,10 +256,10 @@
                                                                   </select>
                                                             </tr>  
                                                             <tr>
-                                                                <td>Patient</td>
+                                                                <td><label>Patient</label></td>
                                                                 <select multiple name="user" [(ngModel)]="dossier.user">
                                                                     <option *ngFor="let u of utilisateurs" [ngValue]="u">
-                                                                      {{utilisateur.nomUtilisateur}} 
+                                                                      {{u.nomUtilisateur}} {{u.prenomUtilisateur}} 
                                                                     </option>
                                                                   </select>
                                                             </tr>
@@ -492,4 +493,5 @@
 </div>
 <div [hidden]="authenticated()">
   <p>Connectez-vous pour afficher l'interface des utilisateurs</p>
+</div>
 </div>

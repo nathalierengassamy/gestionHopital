@@ -14,12 +14,12 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatRippleModule} from '@angular/material/core';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatSelectModule} from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatRippleModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 import { MentionsComponent } from 'app/mentions/mentions/mentions.component';
 import { ContactComponent } from 'app/contact/contact/contact.component';
 import { AppService } from 'app/app.service';
@@ -28,7 +28,14 @@ import { RoleService } from 'app/services/role.service';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminLayoutComponent } from './admin-layout.component';
 import { Observable } from 'rxjs';
-import { LoginComponent } from 'app/login/login.component';
+import { TypeRDVService } from 'app/services/type-rdv.service';
+import { ChambreService } from 'app/services/chambre.service';
+import { DossierService } from 'app/services/dossier.service';
+import { FactureService } from 'app/services/facture.service';
+import { MedicamentService } from 'app/services/medicament.service';
+import { MessageService } from 'app/services/message.service';
+import { OrdonnanceService } from 'app/services/ordonnance.service';
+import { RDVService } from 'app/services/rdv.service';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor{
@@ -68,12 +75,20 @@ export class XhrInterceptor implements HttpInterceptor{
     UpgradeComponent,
     MentionsComponent,
     ContactComponent,
-    LoginComponent,
+    UserProfileComponent,
   ],
   providers: [
     AppService,
     UtilisateurService,
     RoleService,
+    TypeRDVService,
+    ChambreService,
+    DossierService,
+    FactureService,
+    MedicamentService,
+    MessageService,
+    OrdonnanceService,
+    RDVService,
     {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}
   ],
   bootstrap: [AdminLayoutComponent]
