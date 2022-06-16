@@ -43,7 +43,7 @@
                                     <tbody>                                        
                                         <tr>
                                             <td>
-                                                <div><p>Plannifier nouveau RDV</p></div>
+                                                <div><p>Plannifier nouveau RDV</p>
                                                 <form (ngSubmit)="saveRDV()">
                                                     <table>
                                                         <tr>
@@ -63,19 +63,19 @@
                                                             <td><input type="text" [(ngModel)]="rdv.diagnostic" name="diagnostic"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Patient</td>
+                                                            <td><label>Patient</label></td>
                                                             <select multiple name="user" [(ngModel)]="rdv.user">
                                                                 <option *ngFor="let u of utilisateurs" [ngValue]="u">
-                                                                  {{utilisateur.nomUtilisateur}} 
+                                                                  {{u.nomUtilisateur}} {{u.prenomUtilisateur}} 
                                                                 </option>
-                                                            </select>
+                                                              </select>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2"><button>Créer</button></td>
                                                         </tr>  
                                                     </table>
                                                 </form>
-                                                <!--</div>-->
+                                            </div>
                                             <div>
                                                 <table>
                                                     <tr>
@@ -86,13 +86,13 @@
                                                         <th>Patient</th>
                                                         <th>Action</th>
                                                     </tr>
-                                                    <tr *ngFor="let r of rdv">
-                                                            <td>{{r.typerdv}}</td>
-                                                            <td>{{r.heurerdv}}</td>
-                                                            <td>{{r.daterdv}}</td>
+                                                    <tr *ngFor="let r of rdvs">
+                                                            <td>{{r.typeRDV}}</td>
+                                                            <td>{{r.heureRDV}}</td>
+                                                            <td>{{r.dateRDV}}</td>
                                                             <td>{{r.diagnostic}}</td>
                                                             <td>{{r.user}}</td>
-                                                            <td><button (click)="deleterdv(r.idrdv)">Delete</button></td>
+                                                            <td><button (click)="deleteRDV(r.idRDV)">Delete</button></td>
                                                     </tr>
                                                 </table>
                                                 </div>
@@ -101,83 +101,82 @@
                                 </tbody>
                             </table>
                         </div>
-                            <div class="tab-pane" id="dossiers">
-                                <table class="table">
-                                    <tbody>                                        
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    <h1>Voir tous mes dossiers</h1>
-                                                    <form (ngSubmit)="saveDossier()">
-                                                        <table>
-                                                            <tr>
-                                                                <td>Facture</td>
-                                                                <select multiple name="factures" [(ngModel)]="dossier.factures">
-                                                                    <option *ngFor="let f of factures" [ngValue]="f">
-                                                                      {{f.montant}} 
-                                                                    </option>
-                                                                  </select>
-                                                            </tr>    
-                                                            <tr>
-                                                                <td>Ordonnance</td>
-                                                                <select multiple name="ordonnances" [(ngModel)]="dossier.ordonnances">
-                                                                    <option *ngFor="let o of ordonnances" [ngValue]="o">
-                                                                      {{o.consigne}} 
-                                                                    </option>
-                                                                  </select>
-                                                            </tr> 
-                                                            <tr>
-                                                                <td>Chambre</td>
-                                                                <select multiple name="chambres" [(ngModel)]="dossier.chambres">
-                                                                    <option *ngFor="let c of chambres" [ngValue]="c">
-                                                                      {{c.numChambre}} 
-                                                                    </option>
-                                                                  </select>
-                                                            </tr>  
-                                                            <tr>
-                                                                <td>Patient</td>
-                                                                <select multiple name="user" [(ngModel)]="dossier.user">
-                                                                    <option *ngFor="let u of utilisateurs" [ngValue]="u">
-                                                                      {{utilisateur.nomUtilisateur}} 
-                                                                    </option>
-                                                                  </select>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="2"><button>Ajouter</button></td>
-                                                            </tr>  
-                                                        </table>
-                                                    </form>
-                                                </div>
-                                                <div>
+                        <div class="tab-pane" id="dossiers">
+                            <table class="table">
+                                <tbody>                                        
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <h1>Voir les dossiers</h1>
+                                                <form (ngSubmit)="saveDossier()">
                                                     <table>
                                                         <tr>
-                                                            <th>Facture</th>
-                                                            <th>Ordonnance</th>
-                                                            <th>Chambre</th>
-                                                            <th>Patient</th>
-                                                            <th>Action</th>
+                                                            <td>Facture</td>
+                                                            <select multiple name="factures" [(ngModel)]="dossier.factures">
+                                                                <option *ngFor="let f of factures" [ngValue]="f">
+                                                                  {{f.montant}} 
+                                                                </option>
+                                                              </select>
+                                                        </tr>    
+                                                        <tr>
+                                                            <td>Ordonnance</td>
+                                                            <select multiple name="ordonnances" [(ngModel)]="dossier.ordonnances">
+                                                                <option *ngFor="let o of ordonnances" [ngValue]="o">
+                                                                  {{o.consigne}} 
+                                                                </option>
+                                                              </select>
+                                                        </tr> 
+                                                        <tr>
+                                                            <td>Chambre</td>
+                                                            <select multiple name="chambres" [(ngModel)]="dossier.chambres">
+                                                                <option *ngFor="let c of chambres" [ngValue]="c">
+                                                                  {{c.numChambre}} 
+                                                                </option>
+                                                              </select>
+                                                        </tr>  
+                                                        <tr>
+                                                            <td><label>Patient</label></td>
+                                                            <select multiple name="user" [(ngModel)]="dossier.user">
+                                                                <option *ngFor="let u of utilisateurs" [ngValue]="u">
+                                                                  {{u.nomUtilisateur}} {{u.prenomUtilisateur}} 
+                                                                </option>
+                                                              </select>
                                                         </tr>
-                                                        <tr *ngFor="let d of dossiers">
-                                                                <td>{{d.factures}}</td>
-                                                                <td>{{d.ordonnances}}</td>
-                                                                <td>{{d.chambre}}</td>
-                                                                <td>{{d.user}}</td>
-                                                                <td><button (click)="deleteDossier(d.idDossier)">Delete</button></td>
-                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2"><button>Ajouter</button></td>
+                                                        </tr>  
                                                     </table>
-                                                    </div>
-                                            </td>
-                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                                </form>
+                                            </div>
+                                            <div>
+                                                <table>
+                                                    <tr>
+                                                        <th>Facture</th>
+                                                        <th>Ordonnance</th>
+                                                        <th>Chambre</th>
+                                                        <th>Patient</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    <tr *ngFor="let d of dossiers">
+                                                            <td>{{d.factures}}</td>
+                                                            <td>{{d.ordonnances}}</td>
+                                                            <td>{{d.chambre}}</td>
+                                                            <td>{{d.user}}</td>
+                                                            <td><button (click)="deleteDossier(d.idDossier)">Delete</button></td>
+                                                    </tr>
+                                                </table>
+                                                </div>
+                                        </td>
+                                     </tr>
+                                </tbody>
+                            </table>
+                        </div>
                             <div class="tab-pane" id="ordonnances">
                                 <table class="table">
                                     <tbody>                                        
                                         <tr>
                                             <td>
                                                <div><p>Consulter / rédiger Ordonnances</p>
-                                                </div>
                                                 <form (ngSubmit)="saveOrdonnance()">
                                                     <table>
                                                         <tr>
@@ -195,16 +194,16 @@
                                                         <tr>
                                                             <td>Dossier</td>
                                                             <select multiple name="dossier" [(ngModel)]="ordonnance.dossier">
-                                                                <option *ngFor="let d of dossier" [ngValue]="d">
+                                                                <option *ngFor="let d of dossiers" [ngValue]="d">
                                                                   {{d.numChambre}} 
                                                                 </option>
                                                               </select>
                                                         </tr>  
                                                         <tr>
-                                                            <td>Patient</td>
+                                                            <td><label>Patient</label></td>
                                                             <select multiple name="user" [(ngModel)]="dossier.user">
                                                                 <option *ngFor="let u of utilisateurs" [ngValue]="u">
-                                                                  {{utilisateur.nomUtilisateur}} 
+                                                                  {{u.nomUtilisateur}} {{u.prenomUtilisateur}} 
                                                                 </option>
                                                               </select>
                                                         </tr>
@@ -213,7 +212,7 @@
                                                         </tr>  
                                                     </table>
                                                 </form>
-                                            <!--</div>-->
+                                            </div>
                                             <div>
                                                 <table>
                                                     <tr>
@@ -223,12 +222,12 @@
                                                         <th>Patient</th>
                                                         <th>Action</th>
                                                     </tr>
-                                                    <tr *ngFor="let o of ordonnance">
+                                                    <tr *ngFor="let o of ordonnances">
                                                             <td>{{o.consigne}}</td>
                                                             <td>{{o.medicament}}</td>
                                                             <td>{{o.dossier}}</td>
                                                             <td>{{o.user}}</td>
-                                                            <td><button (click)="deleteordonnance(d.idOrdonnance)">Delete</button></td>
+                                                            <td><button (click)="deleteOrdonnance(d.idOrdonnance)">Delete</button></td>
                                                     </tr>
                                                 </table>
                                                 </div>
@@ -242,7 +241,7 @@
                                     <tbody>                                        
                                         <tr>
                                             <td>
-                                                <div><p>Messages des patients</p></div>
+                                                <div><p>Messages des patients</p>
                                                 <form (ngSubmit)="saveMessage()">
                                                     <table>
                                                         <tr>
@@ -250,10 +249,10 @@
                                                             <td><input type="text" [(ngModel)]="message.libelle" name="libelle"></td>
                                                         </tr>    
                                                         <tr>
-                                                            <td>Patient</td>
+                                                            <td><label>Patient</label></td>
                                                             <select multiple name="user" [(ngModel)]="message.user">
                                                                 <option *ngFor="let u of utilisateurs" [ngValue]="u">
-                                                                  {{utilisateur.nomUtilisateur}} 
+                                                                  {{u.nomUtilisateur}} {{u.prenomUtilisateur}} 
                                                                 </option>
                                                               </select>
                                                         </tr>
@@ -262,7 +261,7 @@
                                                         </tr>  
                                                     </table>
                                                 </form>
-                                            <!--</div>-->
+                                            </div>
                                             <div>
                                                 <table>
                                                     <tr>
@@ -270,7 +269,7 @@
                                                         <th>Patient</th>
                                                         <th>Action</th>
                                                     </tr>
-                                                    <tr *ngFor="let m of message">
+                                                    <tr *ngFor="let m of messages">
                                                             <td>{{m.message}}</td>
                                                             <td>{{m.user}}</td>
                                                             <td><button (click)="deleteMessage(m.idMessage)">Delete</button></td>

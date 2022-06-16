@@ -4,8 +4,9 @@ import { Ordonnance } from "./ordonnance";
 import { Utilisateur } from "./utilisateur";
 
 export class Dossier {
-    factures:Facture[];
-    ordonnances:Ordonnance[];
-    chambres:Chambre[];
-    user:Utilisateur[];
+    idDossier!:number;
+    factures!:Facture[];
+    ordonnances!:Ordonnance[];
+    chambres!:Chambre[];
+    user!:Utilisateur[];
 }

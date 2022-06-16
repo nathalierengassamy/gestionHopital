@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RDVService {
-  private baseURL = "http://localhost:7070/rdvs";
+  private baseURL = "http://localhost:9090/rdvs";
   constructor(private httpClient:HttpClient) { }
   public findAllRDV() : Observable<any>{
     return this.httpClient.get(this.baseURL);
