@@ -19,10 +19,10 @@ export class RoleComponent implements OnInit {
   findAllRole(){
     this.roleService.findAllRole().subscribe(data => {this.role = data;});
   }
-  deleteOrdonnance(id:number){
+  deleteRole(id:number){
     this.roleService.deleteRole(id).subscribe(()=>{this.findAllRole()});
   }
-  saveOrdonnance(){
+  saveRole(){
     this.roleService.saveRole(this.role).subscribe(()=>{
       this.findAllRole();
       this.role = new Role();
