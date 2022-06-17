@@ -241,11 +241,12 @@
                                     <tbody>                                        
                                         <tr>
                                             <td>
+                                                <div>
                                                 <td><label>Message du patient</label></td>
                                                 <form (ngSubmit)="saveMessage()">
                                                     <table>
                                                         <tr>
-                                                            <td>Libelle</td>
+                                                            <td><label>Message</label></td>
                                                             <td><input type="text" [(ngModel)]="message.libelle" name="libelle"></td>
                                                         </tr>    
                                                         <tr>
@@ -261,11 +262,11 @@
                                                         </tr>  
                                                     </table>
                                                 </form>
-                                            <!--</div>-->
+                                            </div>
                                             <div>
                                                 <table>
                                                     <tr>
-                                                        <th>Libelle</th>
+                                                        <th>Message</th>
                                                         <th>Patient</th>
                                                         <th>Action</th>
                                                     </tr>

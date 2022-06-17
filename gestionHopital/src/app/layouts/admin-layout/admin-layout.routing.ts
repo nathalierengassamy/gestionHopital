@@ -71,5 +71,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'mentions',        component: MentionsComponent },
     { path: 'contact',        component: ContactComponent },
-    { path: 'connexion', component: UserProfileComponent },
+    { path: 'user-profile', component: UserProfileComponent },
 ];
