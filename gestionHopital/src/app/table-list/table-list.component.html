@@ -42,7 +42,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header card-header-info">
-                    <h4 class="card-title ">2) Quel est le type rendez-vous ?</h4>
+                    <h4 class="card-title ">2) Quel est le type de rendez-vous ?</h4>
                     <p class="card-category">Sélectionnez la catégorie de rendez-vous</p>
                 </div>
                 <div class="card-body">
@@ -54,10 +54,10 @@
                                 </th> -->
                             </thead>
                             <tbody>
-                                <tr *ngFor="let r of rdv">
-                                    <td>
-                                      <input type="checkbox"> {{r.typeRDV}}
-                                    </td>
+                                <tr>
+                                    <th *ngFor="let r of role">
+                                        <input type="checkbox"> {{r.libelle}}
+                                    </th>
                                 </tr>
                             </tbody>
                         </table>
@@ -164,29 +164,25 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class=" text-primary">
+                                <thead class="">
                                     <th>
                                     Date
                                     </th>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let r of rdv">
-                                        <td>
-                                            <input type="checkbox"> {{r.dateRDV}}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <thead class=" text-primary">
-                                    <th>
-                                    Horaire
+                                    <th *ngFor="let r of rdvs">
+                                        <input type="checkbox"> {{r.dateRDV}}
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let r of rdv">
-                                        <td>
-                                            <input type="checkbox"> {{r.heureRDV}
-                                        </td>
-                                    </tr>
+                                </tbody>
+                                <thead class="">
+                                    <th>
+                                    Horaire
+                                    </th>
+                                    <th *ngFor="let r of rdvs">
+                                        <input type="checkbox"> {{r.heureRDV}}
+                                    </th>
+                                </thead>
+                                <tbody>
                                 </tbody>
                             </table>
                         </div>
@@ -209,7 +205,7 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <button>Envoyer</button>
+                                            <button routerLink="/user-profile">Prendre un RDV</button>
                                         </td>
                                     </tr>
                                 </tbody>

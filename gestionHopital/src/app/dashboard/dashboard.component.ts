@@ -15,7 +15,9 @@ import { ChambreService } from 'app/services/chambre.service';
 
 export class DashboardComponent implements OnInit {
   utilisateurs!: any[];
+  utilisateur:Utilisateur=new Utilisateur();
   chambres!: any[];
+  chambre:Chambre=new Chambre();
 
   constructor(private router: Router, private chambreService:ChambreService, private utilisateurService:UtilisateurService) { }
   startAnimationForLineChart(chart){

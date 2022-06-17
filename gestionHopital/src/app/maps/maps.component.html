@@ -6,35 +6,53 @@
                     <div class="card-header card-header-tabs card-header-info">
                         <div class="nav-tabs-navigation">
                             <div class="nav-tabs-wrapper">
-                                <h4 class="card-title">Envoyez un message</h4>
+                                <span class="nav-tabs-title">Envoyez un message</span>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="liste">
-                                  <div class="container">
-                                    <p>Bonjour est-ce que y a quelqu'un</p>
-                                    <span class="time-right">11:02</span>
-                                  </div>
-                                  
-                                  <div class="container darker">
-                                    <img src="https://cdna.pcpartpicker.com/static/forever/images/user/2955525.9628877d0a90e8d86f6396e6ecd2ac5d.256c.jpg" alt="Avatar" class="right">
-                                    <p>Bienvenue sur le service de messagerie de l'hôpital INTI</p>
-                                    <p>Ceci est un message automatique</p>
-                                    <p>Avez-vous une question</p>
-                                    <span class="time-left">11:03</span>
-                                  </div>
-
-                                  <div class="container">
-                                    <p><textarea placeholder="Tapez votre message" cols="120" rows="5"></textarea></p>
-                                  <button>Envoyer</button>
-                                  </div>
-                            </div>
+                            <div class="tab-pane active" id="messages">
+                                <table class="table">
+                                        <div class="container darker">
+                                        <img src="https://cdna.pcpartpicker.com/static/forever/images/user/2955525.9628877d0a90e8d86f6396e6ecd2ac5d.256c.jpg" alt="Avatar" class="right">
+                                        <p>Bienvenue sur le service de messagerie de l'hôpital INTI</p>
+                                        <p>Ceci est un message automatique</p>
+                                        <p>Avez-vous une question</p>
+                                        <p>(Soyez clair et concis ne racontez pas votre vie non plus nous sommes débordés)</p>
+                                        </div>
+                                </table>
+                            <div>
+                                <form (ngSubmit)="saveMessage()">
+                                    <table>
+                                        <tr>
+                                            <td>Date</td>
+                                            <td><input type="date" [(ngModel)]="message.dateMessage" name="dateMessage"></td>
+                                        </tr> 
+                                        <tr>
+                                            <td>Votre message</td>
+                                            <td><input type="text" size="140" [(ngModel)]="message.libelle" name="libelle"></td>
+                                        </tr> 
+                                        <tr>
+                                            <td colspan="2"><button>Envoyer</button></td>
+                                        </tr>  
+                                    </table>
+                                </form>
+                            <!-- <table>
+                                <tr>
+                                    <th>Libelle</th>
+                                    <th>Date Message</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr *ngFor="let m of messages">
+                                <td>{{m.libelle}}</td>
+                                <td>{{m.dateMessage}}</td>
+                                <td><button (click)="deleteMessage(m.idMessage)">Delete</button></td>
+                                </tr>
+                            </table>-->
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    
+                                                
+                                            
+                       
+                              
