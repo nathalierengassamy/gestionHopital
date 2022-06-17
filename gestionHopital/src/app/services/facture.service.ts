@@ -18,4 +18,9 @@ public deleteFacture(id:number):Observable<any>{
 public saveFacture(facture:any):Observable<any>{
   return this.httpClient.post(this.baseURL,facture);
 }
+
+public findByDossier(id:number) : Observable<any>{
+  return this.httpClient.get(this.baseURL+"/"+id);
+}
+
 }

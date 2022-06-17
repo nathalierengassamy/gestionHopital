@@ -1,223 +1,219 @@
 <div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header card-header-info">
-                    <h4 class="card-title ">1) Pour qui est le rendez-vous ?</h4>
-                    <p class="card-category">Sélectionnez pour qui voulez-vous prendre un rendez-vous</p>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class=" text-primary">
-                                <!-- <th>
-                                  Spécialité
-                                </th> -->
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                      <input type="checkbox"> Je prends un rendez-vous pour moi
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                      <input type="checkbox"> Je prends un rendez-vous pour mon enfant
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                      <input type="checkbox"> Je prends un rendez-vous pour un tiers
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header card-header-info">
-                    <h4 class="card-title ">2) Quel est le type rendez-vous ?</h4>
-                    <p class="card-category">Sélectionnez la catégorie de rendez-vous</p>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class=" text-primary">
-                                <!-- <th>
-                                  Spécialité
-                                </th> -->
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let r of rdv">
-                                    <td>
-                                      <input type="checkbox"> {{r.typeRDV}}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="container-fluid">
       <div class="row">
-      <div class="col-md-6">
-        <div class="card">
-            <div class="card-header card-header-info">
-                <h4 class="card-title mt-0"> 3) Avez-vous déjà consulter un de nos médecins ?</h4>
-                <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead class="">
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>
-                                    <input type="checkbox"> Oui
-                                </th>
-                                <th>
-                                    <input type="checkbox"> Non
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-header card-header-info">
+                      <h4 class="card-title ">1) Pour qui est le rendez-vous ?</h4>
+                      <p class="card-category">Sélectionnez pour qui voulez-vous prendre un rendez-vous</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <!-- <th>
+                                    Spécialité
+                                  </th> -->
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                        <input type="checkbox"> Je prends un rendez-vous pour moi
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                        <input type="checkbox"> Je prends un rendez-vous pour mon enfant
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                        <input type="checkbox"> Je prends un rendez-vous pour un tiers
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-header card-header-info">
+                      <h4 class="card-title ">2) Quel est le type de rendez-vous ?</h4>
+                      <p class="card-category">Sélectionnez la catégorie de rendez-vous</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <!-- <th>
+                                    Spécialité
+                                  </th> -->
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <th *ngFor="let r of role">
+                                          <input type="checkbox"> {{r.libelle}}
+                                      </th>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
         <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header card-header-info">
-                        <h4 class="card-title ">4) Motif</h4>
-                        <p class="card-category">Sélectionnez le motif de votre consultation</p>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary"> 
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox"> Chirurgie générale
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox"> Neurochirurgie
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox"> Pédiatrie
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header card-header-info">
-                        <h4 class="card-title ">5) Médecin</h4>
-                        <p class="card-category">Sélectionnez l'un de nos médecins disponibles</p>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary"> 
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let u of utilisateurs">
-                                        <td>
-                                            <input type="checkbox"> {{u.nomUtilisateur}} {{u.prenomUtilisateur}}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header card-header-info">
-                        <h4 class="card-title ">6) Date et horaire</h4>
-                        <p class="card-category">Sélectionnez la date et l'horaire disponible</p>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>
-                                    Date
-                                    </th>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let r of rdv">
-                                        <td>
-                                            <input type="checkbox"> {{r.dateRDV}}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <thead class=" text-primary">
-                                    <th>
-                                    Horaire
-                                    </th>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let r of rdv">
-                                        <td>
-                                            <input type="checkbox"> {{r.heureRDV}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header card-header-info">
-                        <h4 class="card-title ">7) Confirmez votre rendez-vous</h4>
-                        <p class="card-category">Vérifiez les informations précédentes puis cliquez sur envoyer</p>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary"> 
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <button>Envoyer</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="col-md-6">
+          <div class="card">
+              <div class="card-header card-header-info">
+                  <h4 class="card-title mt-0"> 3) Avez-vous déjà consulter un de nos médecins ?</h4>
+                  <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+              </div>
+              <div class="card-body">
+                  <div class="table-responsive">
+                      <table class="table table-hover">
+                          <thead class="">
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <th>
+                                      <input type="checkbox"> Oui
+                                  </th>
+                                  <th>
+                                      <input type="checkbox"> Non
+                                  </th>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+          </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="card">
+                      <div class="card-header card-header-info">
+                          <h4 class="card-title ">4) Motif</h4>
+                          <p class="card-category">Sélectionnez le motif de votre consultation</p>
+                      </div>
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table">
+                                  <thead class=" text-primary"> 
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td>
+                                              <input type="checkbox"> Chirurgie générale
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <input type="checkbox"> Neurochirurgie
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <input type="checkbox"> Pédiatrie
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="card">
+                      <div class="card-header card-header-info">
+                          <h4 class="card-title ">5) Médecin</h4>
+                          <p class="card-category">Sélectionnez l'un de nos médecins disponibles</p>
+                      </div>
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table">
+                                  <thead class=" text-primary"> 
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let u of utilisateurs">
+                                          <td>
+                                              <input type="checkbox"> {{u.nomUtilisateur}} {{u.prenomUtilisateur}}
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="card">
+                      <div class="card-header card-header-info">
+                          <h4 class="card-title ">6) Date et horaire</h4>
+                          <p class="card-category">Sélectionnez la date et l'horaire disponible</p>
+                      </div>
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table">
+                                  <thead class="">
+                                      <th>
+                                      Date
+                                      </th>
+                                      <th *ngFor="let r of rdvs">
+                                          <input type="checkbox"> {{r.dateRDV}}
+                                      </th>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
+                                  <thead class="">
+                                      <th>
+                                      Horaire
+                                      </th>
+                                      <th *ngFor="let r of rdvs">
+                                          <input type="checkbox"> {{r.heureRDV}}
+                                      </th>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="card">
+                      <div class="card-header card-header-info">
+                          <h4 class="card-title ">7) Confirmez votre rendez-vous</h4>
+                          <p class="card-category">Vérifiez les informations précédentes puis cliquez sur envoyer</p>
+                      </div>
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table">
+                                  <thead class=" text-primary"> 
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td>
+                                              <button routerLink="/user-profile">Prendre un RDV</button>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    </div>
   </div>
-</div>

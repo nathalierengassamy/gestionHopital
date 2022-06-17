@@ -1,3 +1,8 @@
+import { Dossier } from "./dossier";
+import { Medicament } from "./medicament";
+import { Message } from "./message";
+import { Ordonnance } from "./ordonnance";
+import { RDV } from "./rdv";
 import { Role } from "./role";
 
 
@@ -13,4 +18,9 @@ export class Utilisateur {
     ageUtilisateur!:number;
     telephone!:number;
     roles!:Role[];
+    dossiers!:Dossier;
+    medicaments!:Medicament[];
+    messages!:Message[];
+    ordonnances!:Ordonnance[];
+    rdvs!:RDV[];
 }

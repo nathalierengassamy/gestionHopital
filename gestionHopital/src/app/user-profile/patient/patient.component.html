@@ -32,12 +32,6 @@
                                             <div class="ripple-container"></div>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a mat-button class="nav-link" href="#statistiques" data-toggle="tab">
-                                            Statistiques
-                                            <div class="ripple-container"></div>
-                                        </a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -50,57 +44,38 @@
                                         <tr>
                                             <td>
                                                 <!-- Début de la liste des médecins-->
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="card-header card-header-success">
-                                                                <h4 class="card-title ">Liste des médecins de l'hôpital</h4>
-                                                                <p class="card-category"> Here is a subtitle for this table</p>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <div class="table-responsive">
+                                                <div>
+                                                    <h1>Liste des médecins de l'hôpital</h1>
                                                                     <table class="table">
                                                                         <thead class=" text-primary">
                                                                             <th>
-                                                                                ID
+                                                                                Nom
                                                                             </th>
                                                                             <th>
-                                                                                Name
+                                                                                Prenom
                                                                             </th>
                                                                             <th>
-                                                                                Country
+                                                                                Role
                                                                             </th>
                                                                             <th>
-                                                                                City
-                                                                            </th>
-                                                                            <th>
-                                                                                Salary
+                                                                                <button routerLink="/table-list">Je prends un rendez-vous</button>
                                                                             </th>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr>
+                                                                            <tr *ngFor="let u of utilisateurs">
                                                                                 <td>
-                                                                                    1
+                                                                                    {{u.nomUtilisateur}}
                                                                                 </td>
                                                                                 <td>
-                                                                                    Dakota Rice
+                                                                                    {{u.prenomUtilisateur}}
                                                                                 </td>
                                                                                 <td>
-                                                                                    Niger
-                                                                                </td>
-                                                                                <td>
-                                                                                    Oud-Turnhout
-                                                                                </td>
-                                                                                <td class="text-primary">
-                                                                                    $36,738
+                                                                                    {{u.roles}}
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                                
                                                 </div>
                                                 <!--Fin de liste médecin-->
                                             </td>
@@ -114,56 +89,42 @@
                                         <tr>
                                             <td>
                                                 <!-- Début de mon dossier-->
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="card-header card-header-success">
-                                                                <h4 class="card-title ">To be created</h4>
-                                                                <p class="card-category"> Here is a subtitle for this table</p>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <div class="table-responsive">
+                                                <div>
+                                                   
+                                                    <h1>Ma chambre</h1>
+                                                                    <table class="table">
+                                                                        <tr>
+                                                                            <Span>Mon numéro de chambre est le <!--{{dossier.chambre.numChambre}}--> </Span> <!--ATTENTION pas à jour-->
+                                                                        </tr>
+                                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <h1 >Mes Rendez-Vous</h1>
+                                                    <div>
                                                                     <table class="table">
                                                                         <thead class=" text-primary">
                                                                             <th>
-                                                                                ID
+                                                                                Date 
                                                                             </th>
                                                                             <th>
-                                                                                Name
+                                                                                heure
                                                                             </th>
                                                                             <th>
-                                                                                Country
+                                                                                type 
                                                                             </th>
                                                                             <th>
-                                                                                City
-                                                                            </th>
-                                                                            <th>
-                                                                                Salary
+                                                                                Médecin 
                                                                             </th>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    1
-                                                                                </td>
-                                                                                <td>
-                                                                                    Dakota Rice
-                                                                                </td>
-                                                                                <td>
-                                                                                    Niger
-                                                                                </td>
-                                                                                <td>
-                                                                                    Oud-Turnhout
-                                                                                </td>
-                                                                                <td class="text-primary">
-                                                                                    $36,738
-                                                                                </td>
+                                                                            <tr *ngFor="let r of rdvs">
+                                                                                <td>{{r.Date}}</td> <!--ATTENTION pas à jour-->
+                                                                                <td>{{r.heure}}</td> <!--ATTENTION pas à jour-->
+                                                                                <td>{{r.type}}</td> <!--ATTENTION pas à jour-->
+                                                                                <td>{{r.medecin}}</td> <!--ATTENTION pas à jour-->
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!--Fin de mon dossier-->
@@ -178,44 +139,30 @@
                                         <tr>
                                             <td>
                                                 <!--Début de mes ordonnances-->
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="card-header card-header-success">
-                                                                <h4 class="card-title ">Liste des ordonnances</h4>
-                                                                <p class="card-category"> Here is a subtitle for this table</p>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <div class="table-responsive">
+                                                <div>
+                                                    <h1>Liste des ordonnances</h1>
+                                                    <div>
                                                                     <table class="table">
                                                                         <thead class=" text-primary">
                                                                             <th>
-                                                                                Date de l'ordonnance
+                                                                                Liste des médicaments
+                                                                            </th>
+                                                                            <th>
+                                                                                Consignes
                                                                             </th>
                                                                             <th>
                                                                                 Médecin 
                                                                             </th>
-                                                                            <th>
-                                                                                télécharger
-                                                                            </th>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    10/10/10
-                                                                                </td>
-                                                                                <td>
-                                                                                    Dakota Rice
-                                                                                </td>
-                                                                                <td>
-                                                                                    plugin
-                                                                                </td>
-                                                                            </tr>
+                                                                            <tr *ngFor="let o of ordonnances">
+                                                                                <td>{{o.medicament}}</td>
+                                                                                <td>{{o.consigne}}</td>
+                                                                                <td>{{o.user}}</td>
+                                                                                <td><button (click)="deleteOrdonnance(d.idOrdonnance)">Delete</button></td>
+                                                                        </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!--Fin de mes ordonnances-->
@@ -230,105 +177,28 @@
                                         <tr>
                                             <td>
                                                 <!--Début de mes factures-->
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="card-header card-header-success">
-                                                                <h4 class="card-title ">Liste des factures</h4>
-                                                                <p class="card-category"> Here is a subtitle for this table</p>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <div class="table-responsive">
+                                                <div>
+                                                    <h1>Liste des factures</h1>
+                                                    <div>
                                                                     <table class="table">
                                                                         <thead class=" text-primary">
                                                                             <th>
-                                                                                Date de la facture
+                                                                                id
                                                                             </th>
                                                                             <th>
-                                                                                télécharger
+                                                                                montant
                                                                             </th>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    10/10/10
-                                                                                </td>
-                                                                                <td>
-                                                                                    plugin
-                                                                                </td>
+                                                                            <tr *ngFor="let f of factures">
+                                                                                <td>{{f.idFacture}}</td> <!--mis à jour-->
+                                                                                <td>{{f.montant}}</td> <!--mis à jour-->
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!--Fin de mes factures-->
-                                            </td>
-                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="tab-pane" id="statistiques">
-                                <table class="table">
-                                    <tbody>                                        
-                                        <tr>
-                                            <td>
-                                                <!--Début statistiques-->
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="card card-chart">
-                                                            <div class="card-header card-header-info">
-                                                                <div class="ct-chart" id="dailySalesChart"></div>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <h4 class="card-title">Cas de covid</h4>
-                                                                <p class="card-category">
-                                                                    <span class="text-danger"><i class="fa fa-long-arrow-up"></i> 55% </span> de cas supplémentaires</p>
-                                                            </div>
-                                                            <div class="card-footer">
-                                                                <div class="stats">
-                                                                    <i class="material-icons">access_time</i> mis à jour à 12h00
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="card card-chart">
-                                                            <div class="card-header card-header-warning">
-                                                                <div class="ct-chart" id="websiteViewsChart"></div>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <h4 class="card-title">Nombre de visites</h4>
-                                                                <p class="card-category">Affluence journalière de l'hôpital</p>
-                                                            </div>
-                                                            <div class="card-footer">
-                                                                <div class="stats">
-                                                                    <i class="material-icons">access_time</i> mis à jour à 12h00
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="card card-chart">
-                                                            <div class="card-header card-header-danger">
-                                                                <div class="ct-chart" id="completedTasksChart"></div>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <h4 class="card-title">Effectifs</h4>
-                                                                <p class="card-category">Emmanuel Macron nous a abandonné</p>
-                                                            </div>
-                                                            <div class="card-footer">
-                                                                <div class="stats">
-                                                                    <i class="material-icons">access_time</i> mis à jour hier
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <!--Fin de statistiques-->
                                             </td>
                                          </tr>
                                     </tbody>

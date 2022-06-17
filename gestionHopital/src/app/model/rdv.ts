@@ -1,3 +1,4 @@
+import { TypeRDV } from "./type-rdv";
 import { Utilisateur } from "./utilisateur";
 
 export class RDV {
@@ -7,4 +8,5 @@ export class RDV {
     dateRDV!:Date;
     diagnostic!:String;
     user!:Utilisateur[];
+    typerdv!:TypeRDV[];
 }

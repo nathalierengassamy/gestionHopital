@@ -28,7 +28,7 @@ export const ROUTES = [
     { path: '/typography', title: 'Infos pratiques',  icon:'info', class: '' },
     { path: '/icons', title: 'Faire un don',  icon:'favorite', class: '' },
     //{ path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    { path : '/login', title: "Login" },
+    //{ path : '/login', title: "Login" },
     { path: '/notifications', title: 'Statistiques',  icon:'content_paste', class: '' },
     { path: '/maps', title: 'Message',  icon:'contact_support', class: '' },
     //{ path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
